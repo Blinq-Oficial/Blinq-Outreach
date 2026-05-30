@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import { runScrapingPipeline } from '@/lib/scraper';
+import { isSupabaseConfigured, localDb } from '@/lib/dbFallback';
 
 // GET/POST: Endpoint triggered by Vercel Cron daily at 12:00 PM
 export async function GET(request: Request) {
@@ -14,17 +15,30 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: 'Unauthorized cron access.' }, { status: 401 });
     }
 
-    // 1. Fetch the first active campaign in the system
-    const { data: campaign, error: campError } = await supabase
-      .from('campaigns')
-      .select('*')
-      .eq('status', 'active')
-      .order('created_at', { ascending: true })
-      .limit(1)
-      .maybeSingle();
+    let campaign;
+    if (!isSupabaseConfigured()) {
+      // Fetch first active campaign in local fallback DB
+      const campaigns = localDb.getCampaigns();
+      campaign = campaigns.find(c => c.status === 'active') || campaigns[0];
+      
+      // If no campaign exists, create a default active one
+      if (!campaign) {
+        campaign = localDb.createCampaign('Dentistas', 'Monterrey, MX');
+      }
+    } else {
+      // Fetch the first active campaign in Supabase
+      const { data, error: campError } = await supabase
+        .from('campaigns')
+        .select('*')
+        .eq('status', 'active')
+        .order('created_at', { ascending: true })
+        .limit(1)
+        .maybeSingle();
 
-    if (campError) {
-      throw campError;
+      if (campError) {
+        throw campError;
+      }
+      campaign = data;
     }
 
     if (!campaign) {
@@ -34,13 +48,17 @@ export async function GET(request: Request) {
       });
     }
 
-    console.log(`[CRON TRIGGERED] Daily outreach starting for: ${campaign.niche} in ${campaign.city}`);
+    const campaignId = campaign.id;
+    const niche = campaign.niche;
+    const city = campaign.city;
 
-    // 2. Trigger scraper pipeline to get up to 10 new leads for this campaign
+    console.log(`[CRON TRIGGERED] Daily outreach starting for: ${niche} in ${city}`);
+
+    // 2. Trigger scraper pipeline to get new leads for this campaign
     const scrapedCount = await runScrapingPipeline(
-      campaign.id,
-      campaign.niche,
-      campaign.city
+      campaignId,
+      niche,
+      city
     );
 
     return NextResponse.json({
