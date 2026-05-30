@@ -3,6 +3,43 @@ import { localDb } from '@/lib/dbFallback';
 import { supabase } from '@/lib/supabase';
 import { isSupabaseConfigured } from '@/lib/dbFallback';
 import crypto from 'crypto';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+
+// Helper to generate highly personalized AI reply suggestions when a lead answers
+async function generateAiReplySuggestion(prospectName: string, incomingEmailBody: string): Promise<string> {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) return '';
+  
+  try {
+    const genAI = new GoogleGenerativeAI(apiKey);
+    // Use gemini-1.5-flash for super high-speed stable responses in edge serverless runtimes
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    
+    const prompt = `
+Eres David, el fundador de Blinq. Un prospecto llamado ${prospectName} ha respondido a tu correo frío con el siguiente mensaje:
+"${incomingEmailBody}"
+
+Escribe una sugerencia de respuesta corta, sumamente profesional, cercana, cálida y muy clara en español de tú a tú para contestarle.
+Nuestros planes:
+- Plan PROTOCOL IGNITION ($50 USD / 200.000 COP): Entrega en 48 horas, velocidad de carga luz, cero anticipo (paga al estar satisfecho).
+- Si preguntan por el boceto / propuesta Figma: Confirma que ya estás trabajando en él y se lo enviarás muy pronto para que lo evalúe sin compromiso.
+- Si están interesados en agendar: Ofrece coordinar una llamada corta de 10 minutos para definir los detalles.
+
+Instrucciones exactas de David:
+1. Sé extremadamente educado, cálido y humano. NUNCA respondas con plantillas robóticas o corporativas pesadas.
+2. Mantén la respuesta por debajo de 100 palabras.
+3. Responde únicamente con el cuerpo del correo sugerido. No agregues asuntos, ni explicaciones previas, ni comillas.
+
+Comienza con un saludo natural: "Hola [Nombre]," (usa su nombre de pila si está disponible) y firma como "David | Blinq".
+`;
+
+    const result = await model.generateContent(prompt);
+    return result.response.text().trim();
+  } catch (err) {
+    console.error('Failed to generate AI reply suggestion:', err);
+    return '';
+  }
+}
 
 // Svix/Resend Webhook signature verification helper (Base64 decode + HMAC SHA256)
 function verifyWebhookSignature(req: Request, payloadText: string): boolean {
@@ -135,9 +172,19 @@ export async function POST(request: Request) {
       const matched = allLeads.find(l => l.email && l.email.toLowerCase() === cleanFromEmail);
       if (matched) {
         console.log(`[LOCAL WEBHOOK MATCH] Matching lead found: ${matched.business_name}. Setting to 'replied'.`);
+        
+        let aiSuggestion = '';
+        try {
+          aiSuggestion = await generateAiReplySuggestion(matched.business_name, text);
+        } catch (e) {}
+        
+        const notePrefix = aiSuggestion 
+          ? `[Resend Inbound] Respuesta recibida: "${text.substring(0, 150)}"\n\n🤖 [Blinq AI Sugiere Responder]:\n"${aiSuggestion}"`
+          : `[Resend Inbound] Respuesta recibida: "${text.substring(0, 150)}"`;
+
         localDb.updateLeadCrm(matched.lead_id, {
           crm_status: 'replied',
-          crm_notes: `[Resend Inbound] Respuesta recibida: "${text.substring(0, 150)}"\n${matched.crm_notes || ''}`
+          crm_notes: `${notePrefix}\n\n${matched.crm_notes || ''}`
         });
         localDb.updateDraft(matched.lead_id, {
           status: 'sent',
@@ -171,13 +218,22 @@ export async function POST(request: Request) {
     if (cleanFromEmail) {
       const { data: lead, error: findErr } = await supabase
         .from('leads')
-        .select('id, crm_notes')
+        .select('id, business_name, crm_notes')
         .eq('email', cleanFromEmail)
         .maybeSingle();
 
       if (lead) {
+        let aiSuggestion = '';
+        try {
+          aiSuggestion = await generateAiReplySuggestion(lead.business_name, text);
+        } catch (e) {}
+
         const cleanText = text.substring(0, 150) + (text.length > 150 ? '...' : '');
-        const newNotes = `[Resend Inbound] Respuesta recibida: "${cleanText}"\n${lead.crm_notes || ''}`;
+        const notePrefix = aiSuggestion 
+          ? `[Resend Inbound] Respuesta recibida: "${cleanText}"\n\n🤖 [Blinq AI Sugiere Responder]:\n"${aiSuggestion}"`
+          : `[Resend Inbound] Respuesta recibida: "${cleanText}"`;
+          
+        const newNotes = `${notePrefix}\n\n${lead.crm_notes || ''}`;
         
         await supabase
           .from('leads')

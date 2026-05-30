@@ -614,22 +614,27 @@ export default function Dashboard() {
                             </div>
                           )}
 
-                          <input
-                            type="text"
+                          <textarea
                             placeholder="Notas..."
                             defaultValue={lead.crm_notes || ''}
                             className="kanban-card-notes"
+                            rows={3}
                             style={{
                               borderColor: isReplied ? 'rgba(245, 158, 11, 0.3)' : 'var(--border-subtle)',
-                              background: isReplied ? 'rgba(0,0,0,0.4)' : 'rgba(0, 0, 0, 0.2)'
+                              background: isReplied ? 'rgba(0,0,0,0.4)' : 'rgba(0, 0, 0, 0.2)',
+                              resize: 'vertical',
+                              minHeight: '58px',
+                              maxHeight: '180px',
+                              fontSize: '0.72rem',
+                              lineHeight: '1.4',
+                              width: '100%',
+                              outline: 'none',
+                              padding: '0.35rem 0.5rem',
+                              borderRadius: '6px',
+                              fontFamily: 'inherit',
+                              color: 'var(--text-primary)'
                             }}
                             onBlur={(e) => handleUpdateCrmNotes(lead.lead_id, e.target.value)}
-                            onKeyDown={(e) => {
-                              if (e.key === 'Enter') {
-                                handleUpdateCrmNotes(lead.lead_id, (e.target as HTMLInputElement).value);
-                                (e.target as HTMLInputElement).blur();
-                              }
-                            }}
                           />
 
                           <div className="kanban-card-actions">
@@ -754,18 +759,27 @@ export default function Dashboard() {
                         </select>
                       </td>
                       <td style={{ padding: '0.85rem 1rem', width: '20%' }}>
-                        <input
-                          type="text"
+                        <textarea
                           defaultValue={lead.crm_notes || ''}
                           placeholder="Nota..."
                           className="kanban-card-notes"
-                          onBlur={(e) => handleUpdateCrmNotes(lead.lead_id, e.target.value)}
-                          onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                              handleUpdateCrmNotes(lead.lead_id, (e.target as HTMLInputElement).value);
-                              (e.target as HTMLInputElement).blur();
-                            }
+                          rows={2}
+                          style={{
+                            resize: 'vertical',
+                            minHeight: '44px',
+                            maxHeight: '120px',
+                            fontSize: '0.72rem',
+                            lineHeight: '1.4',
+                            width: '100%',
+                            outline: 'none',
+                            padding: '0.35rem 0.5rem',
+                            borderRadius: '6px',
+                            fontFamily: 'inherit',
+                            color: 'var(--text-primary)',
+                            background: 'rgba(0, 0, 0, 0.2)',
+                            borderColor: 'var(--border-subtle)'
                           }}
+                          onBlur={(e) => handleUpdateCrmNotes(lead.lead_id, e.target.value)}
                         />
                       </td>
                       <td style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>
