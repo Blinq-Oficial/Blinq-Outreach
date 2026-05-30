@@ -67,21 +67,17 @@ export default function Navigation() {
         borderTop: '1px solid var(--border-subtle)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-          <div style={{
-            width: '30px',
-            height: '30px',
-            borderRadius: '8px',
-            background: 'linear-gradient(135deg, hsl(var(--color-primary)), hsl(var(--color-accent)))',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '0.72rem',
-            fontWeight: 700,
-            color: '#fff',
-            boxShadow: '0 0 12px hsla(var(--color-primary) / 0.25)'
-          }}>
-            BQ
-          </div>
+          <img 
+            src="/logo.png" 
+            alt="Blinq Logo" 
+            style={{
+              width: '30px',
+              height: '30px',
+              borderRadius: '8px',
+              objectFit: 'cover',
+              boxShadow: '0 0 12px rgba(168, 85, 247, 0.4)'
+            }}
+          />
           <div>
             <h5 style={{ fontSize: '0.8rem', fontWeight: 600, letterSpacing: '-0.01em', color: '#ffffff' }}>Blinq Enterprise</h5>
             <p style={{ fontSize: '0.65rem', color: '#a855f7', fontWeight: 600 }}>AI Protocol Active ⚡</p>

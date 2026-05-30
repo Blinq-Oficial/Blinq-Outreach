@@ -21,15 +21,29 @@ export default function RootLayout({
         <div className="app-container">
           {/* Permanent Sidebar Navigation */}
           <aside className="sidebar">
-            <div className="logo">
-              <div className="logo-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                  <polyline points="2 17 12 22 22 17"></polyline>
-                  <polyline points="2 12 12 17 22 12"></polyline>
-                </svg>
-              </div>
-              <span className="logo-text">Blinq.</span>
+            <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', padding: '0.85rem 0.5rem', marginBottom: '1.5rem' }}>
+              <img 
+                src="/logo.png" 
+                alt="Blinq" 
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '8px',
+                  objectFit: 'cover',
+                  boxShadow: '0 0 16px rgba(168, 85, 247, 0.45)'
+                }}
+              />
+              <span className="logo-text" style={{
+                fontFamily: 'var(--font-sans)',
+                fontWeight: 900,
+                fontSize: '1.25rem',
+                letterSpacing: '-0.03em',
+                background: 'linear-gradient(to right, #ffffff, #c084fc)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+              }}>
+                Blinq.
+              </span>
             </div>
 
             <Navigation />
