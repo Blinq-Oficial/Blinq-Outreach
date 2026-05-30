@@ -993,3 +993,237 @@ a:hover { color: hsl(var(--color-accent) / 0.8); }
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 10px hsla(var(--color-primary) / 0.08);
 }
 
+/* =========================================================================
+   SAPPHIRE OBSIDIAN UI ELEMENTS
+   ========================================================================= */
+
+:root {
+  --color-sapphire-purple: 270 89% 65%;
+  --color-sapphire-cyan: 190 90% 50%;
+  --color-sapphire-bg: 240 16% 4%;
+  --color-sapphire-card: 240 10% 7%;
+  --border-sapphire: rgba(147, 51, 234, 0.15);
+}
+
+.sapphire-body-overlay {
+  background-image:
+    radial-gradient(circle 800px at 50% -200px, rgba(147, 51, 234, 0.12), transparent 80%),
+    radial-gradient(circle 600px at 100% 20%, rgba(6, 182, 212, 0.05), transparent 70%);
+}
+
+/* ── Sapphire Welcomes ── */
+.sapphire-greeting-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #ffffff 60%, rgba(255,255,255,0.7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sapphire-greeting-subtitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-top: 0.25rem;
+  background: linear-gradient(135deg, #ffffff, rgba(255,255,255,0.4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Sapphire Premium Glass Cards ── */
+.sapphire-card {
+  background: rgba(10, 10, 16, 0.8);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 
+    0 1px 0 0 rgba(255, 255, 255, 0.05) inset,
+    0 4px 30px rgba(0, 0, 0, 0.5);
+  transition: all var(--duration-slow) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.sapphire-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(147, 51, 234, 0.25);
+  box-shadow: 
+    0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+    0 10px 40px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(147, 51, 234, 0.1);
+}
+
+/* ── Glowing 3D Orb ── */
+.sapphire-orb-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.sapphire-orb {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgb(168, 85, 247), rgb(59, 130, 246) 50%, rgb(6, 182, 212) 100%);
+  filter: blur(8px);
+  box-shadow: 
+    inset -10px -10px 40px rgba(0,0,0,0.6),
+    0 0 60px rgba(147, 51, 234, 0.6),
+    0 0 100px rgba(6, 182, 212, 0.4);
+  animation: orbFloat 6s ease-in-out infinite alternate, orbRotate 12s linear infinite;
+  transition: all 0.5s ease;
+}
+
+.sapphire-card:hover .sapphire-orb {
+  transform: scale(1.1);
+  filter: blur(4px);
+  box-shadow: 
+    inset -5px -5px 30px rgba(0,0,0,0.4),
+    0 0 80px rgba(168, 85, 247, 0.8),
+    0 0 140px rgba(6, 182, 212, 0.6);
+}
+
+@keyframes orbFloat {
+  0% { transform: translateY(-8px) scale(0.95); }
+  100% { transform: translateY(8px) scale(1.05); }
+}
+
+@keyframes orbRotate {
+  0% { rotate: 0deg; }
+  100% { rotate: 360deg; }
+}
+
+/* ── Sapphire Calendar Widget ── */
+.sapphire-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.35rem;
+  text-align: center;
+  font-size: 0.72rem;
+}
+
+.sapphire-calendar-day-header {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 500;
+  padding: 0.2rem 0;
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+}
+
+.sapphire-calendar-day {
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.45rem 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 150ms ease;
+  font-weight: 600;
+}
+
+.sapphire-calendar-day:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.sapphire-calendar-day.active {
+  background: rgb(147, 51, 234);
+  color: #ffffff;
+  box-shadow: 
+    0 0 12px rgba(147, 51, 234, 0.6),
+    0 0 20px rgba(147, 51, 234, 0.3);
+  font-weight: 800;
+}
+
+.sapphire-calendar-day.muted {
+  color: rgba(255, 255, 255, 0.15);
+  font-weight: 400;
+}
+
+/* ── Sapphire Metrics KPIs ── */
+.sapphire-kpi {
+  background: rgba(14, 15, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.sapphire-kpi:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(20, 20, 30, 0.8);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.sapphire-kpi-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sapphire-kpi-view-all {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+  transition: color 150ms ease;
+}
+
+.sapphire-kpi-view-all:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ── GitHub Heatmap Contribution Grid ── */
+.sapphire-heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(28, 1fr);
+  gap: 4px;
+}
+
+.sapphire-heatmap-cell {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 150ms ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.sapphire-heatmap-cell:hover {
+  transform: scale(1.2);
+  z-index: 10;
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* Color Intensities matching purple theme */
+.sapphire-heatmap-cell.level-0 { background: rgba(255, 255, 255, 0.03); color: transparent; }
+.sapphire-heatmap-cell.level-1 { background: rgb(88, 28, 135); color: rgb(168, 85, 247); }
+.sapphire-heatmap-cell.level-2 { background: rgb(126, 34, 206); color: rgb(192, 132, 252); }
+.sapphire-heatmap-cell.level-3 { background: rgb(147, 51, 234); color: rgb(216, 180, 254); }
+.sapphire-heatmap-cell.level-4 { background: rgb(168, 85, 247); color: rgb(243, 232, 255); }
+
+.sapphire-heatmap-legend-box {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+
