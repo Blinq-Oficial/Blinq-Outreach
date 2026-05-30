@@ -118,16 +118,36 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Sender field (from) is required.' }, { status: 400 });
     }
 
+    // Clean 'from' and extract pure email address for matching
+    const emailMatch = from.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
+    const cleanFromEmail = emailMatch ? emailMatch[0].toLowerCase() : from.toLowerCase();
+
     if (!isSupabaseConfigured()) {
-      console.log('[LOCAL FALLBACK DB] Registering inbound reply from:', from);
+      console.log('[LOCAL FALLBACK DB] Registering inbound reply from:', cleanFromEmail);
       const newReply = localDb.createReply({
-        from,
+        from: from,
         to: Array.isArray(to) ? to : [to],
         subject,
         text,
         html,
         date
       });
+
+      // Explicitly scan leads to force "replied" status update locally
+      const allLeads = localDb.getLeads();
+      const matched = allLeads.find(l => l.email && l.email.toLowerCase() === cleanFromEmail);
+      if (matched) {
+        console.log(`[LOCAL WEBHOOK MATCH] Matching lead found: ${matched.business_name}. Setting to 'replied'.`);
+        localDb.updateLeadCrm(matched.lead_id, {
+          crm_status: 'replied',
+          crm_notes: `[Resend Inbound] Respuesta recibida: "${text.substring(0, 150)}"\n${matched.crm_notes || ''}`
+        });
+        localDb.updateDraft(matched.lead_id, {
+          status: 'sent',
+          sent_at: new Date().toISOString()
+        });
+      }
+
       return NextResponse.json({ success: true, local: true, replyId: newReply.id });
     }
 
@@ -151,13 +171,11 @@ export async function POST(request: Request) {
     }
 
     // Match and update lead CRM status to 'replied' in Supabase
-    const emailMatch = from.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
-    if (emailMatch) {
-      const email = emailMatch[0].toLowerCase();
+    if (cleanFromEmail) {
       const { data: lead, error: findErr } = await supabase
         .from('leads')
         .select('id, crm_notes')
-        .eq('email', email)
+        .eq('email', cleanFromEmail)
         .maybeSingle();
 
       if (lead) {

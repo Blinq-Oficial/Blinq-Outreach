@@ -562,78 +562,116 @@ export default function Dashboard() {
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', flex: 1, overflowY: 'auto' }}>
-                    {stageLeads.map(lead => (
-                      <div key={lead.lead_id} className="kanban-card" style={{ borderLeft: `3px solid ${stage.color}`, background: 'rgba(20, 20, 30, 0.6)', borderRadius: '12px' }}>
-                        <span className="kanban-card-name">{lead.business_name}</span>
-                        
-                        {/* WEBSITE URL DISPLAY */}
-                        <a href={lead.website} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.72rem', color: '#3b82f6', textDecoration: 'underline', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', display: 'block', margin: '0.15rem 0' }}>
-                          {lead.website.replace('https://', '').replace('http://', '').replace('www.', '')}
-                        </a>
-
-                        <span className="kanban-card-meta">
-                          <MapPin width={9} height={9} /> {lead.city.substring(0, 20)}
-                        </span>
-
-                        {lead.website_issues?.[0] && (
-                          <div className="kanban-card-issue">
-                            ⚠ {lead.website_issues[0].substring(0, 50)}
-                          </div>
-                        )}
-
-                        <input
-                          type="text"
-                          placeholder="Notas..."
-                          defaultValue={lead.crm_notes || ''}
-                          className="kanban-card-notes"
-                          onBlur={(e) => handleUpdateCrmNotes(lead.lead_id, e.target.value)}
-                          onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                              handleUpdateCrmNotes(lead.lead_id, (e.target as HTMLInputElement).value);
-                              (e.target as HTMLInputElement).blur();
-                            }
+                    {stageLeads.map(lead => {
+                      const isReplied = lead.crm_status === 'replied';
+                      return (
+                        <div 
+                          key={lead.lead_id} 
+                          className="kanban-card" 
+                          style={{ 
+                            borderLeft: isReplied ? '3px solid #f59e0b' : `3px solid ${stage.color}`, 
+                            background: isReplied 
+                              ? 'linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(20, 20, 30, 0.95))' 
+                              : 'rgba(20, 20, 30, 0.6)', 
+                            borderRadius: '12px',
+                            boxShadow: isReplied ? '0 0 20px rgba(245, 158, 11, 0.15)' : 'none',
+                            border: isReplied ? '1px solid rgba(245, 158, 11, 0.3)' : '1px solid var(--border-subtle)'
                           }}
-                        />
-
-                        <div className="kanban-card-actions">
-                          <div style={{ display: 'flex', gap: '0.25rem' }}>
-                            {lead.email && (
-                              <a href={`mailto:${lead.email}`} className="btn-icon" style={{ padding: '0.25rem', borderRadius: '6px' }} title={lead.email}>
-                                <Mail width={10} height={10} />
-                              </a>
+                        >
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.4rem' }}>
+                            <span className="kanban-card-name" style={{ color: isReplied ? '#f59e0b' : '#ffffff', fontWeight: isReplied ? 800 : 600 }}>
+                              {lead.business_name}
+                            </span>
+                            {isReplied && (
+                              <span style={{ 
+                                background: 'rgba(245, 158, 11, 0.15)', 
+                                color: '#f59e0b', 
+                                fontSize: '0.6rem', 
+                                fontWeight: 800, 
+                                padding: '0.15rem 0.4rem', 
+                                borderRadius: '6px',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.05em',
+                                flexShrink: 0
+                              }}>
+                                Nuevo
+                              </span>
                             )}
-                            {lead.whatsapp && (
-                              <a href={lead.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-icon" style={{ padding: '0.25rem', color: '#10b981', borderRadius: '6px' }}>
-                                <Phone width={10} height={10} />
-                              </a>
-                            )}
-                            <a href={lead.website} target="_blank" rel="noopener noreferrer" className="btn-icon" style={{ padding: '0.25rem', borderRadius: '6px' }}>
-                              <Globe width={10} height={10} />
-                            </a>
                           </div>
-                          <div style={{ display: 'flex', gap: '0.2rem' }}>
-                            {stage.key !== 'lead' && (
-                              <button
-                                onClick={() => moveLeadStage(lead.lead_id, lead.crm_status || 'lead', 'prev')}
-                                className="btn-icon"
-                                style={{ padding: '0.15rem 0.25rem', borderRadius: '4px' }}
-                              >
-                                <ArrowLeft width={10} height={10} />
-                              </button>
-                            )}
-                            {stage.key !== 'won' && (
-                              <button
-                                onClick={() => moveLeadStage(lead.lead_id, lead.crm_status || 'lead', 'next')}
-                                className="btn-icon"
-                                style={{ padding: '0.15rem 0.25rem', borderRadius: '4px' }}
-                              >
-                                <ArrowRight width={10} height={10} />
-                              </button>
-                            )}
+                          
+                          {/* WEBSITE URL DISPLAY */}
+                          <a href={lead.website} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.72rem', color: '#3b82f6', textDecoration: 'underline', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', display: 'block', margin: '0.15rem 0' }}>
+                            {lead.website.replace('https://', '').replace('http://', '').replace('www.', '')}
+                          </a>
+
+                          <span className="kanban-card-meta">
+                            <MapPin width={9} height={9} /> {lead.city.substring(0, 20)}
+                          </span>
+
+                          {lead.website_issues?.[0] && (
+                            <div className="kanban-card-issue">
+                              ⚠ {lead.website_issues[0].substring(0, 50)}
+                            </div>
+                          )}
+
+                          <input
+                            type="text"
+                            placeholder="Notas..."
+                            defaultValue={lead.crm_notes || ''}
+                            className="kanban-card-notes"
+                            style={{
+                              borderColor: isReplied ? 'rgba(245, 158, 11, 0.3)' : 'var(--border-subtle)',
+                              background: isReplied ? 'rgba(0,0,0,0.4)' : 'rgba(0, 0, 0, 0.2)'
+                            }}
+                            onBlur={(e) => handleUpdateCrmNotes(lead.lead_id, e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                handleUpdateCrmNotes(lead.lead_id, (e.target as HTMLInputElement).value);
+                                (e.target as HTMLInputElement).blur();
+                              }
+                            }}
+                          />
+
+                          <div className="kanban-card-actions">
+                            <div style={{ display: 'flex', gap: '0.25rem' }}>
+                              {lead.email && (
+                                <a href={`mailto:${lead.email}`} className="btn-icon" style={{ padding: '0.25rem', borderRadius: '6px' }} title={lead.email}>
+                                  <Mail width={10} height={10} />
+                                </a>
+                              )}
+                              {lead.whatsapp && (
+                                <a href={lead.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-icon" style={{ padding: '0.25rem', color: '#10b981', borderRadius: '6px' }}>
+                                  <Phone width={10} height={10} />
+                                </a>
+                              )}
+                              <a href={lead.website} target="_blank" rel="noopener noreferrer" className="btn-icon" style={{ padding: '0.25rem', borderRadius: '6px' }}>
+                                <Globe width={10} height={10} />
+                              </a>
+                            </div>
+                            <div style={{ display: 'flex', gap: '0.2rem' }}>
+                              {stage.key !== 'lead' && (
+                                <button
+                                  onClick={() => moveLeadStage(lead.lead_id, lead.crm_status || 'lead', 'prev')}
+                                  className="btn-icon"
+                                  style={{ padding: '0.15rem 0.25rem', borderRadius: '4px' }}
+                                >
+                                  <ArrowLeft width={10} height={10} />
+                                </button>
+                              )}
+                              {stage.key !== 'won' && (
+                                <button
+                                  onClick={() => moveLeadStage(lead.lead_id, lead.crm_status || 'lead', 'next')}
+                                  className="btn-icon"
+                                  style={{ padding: '0.15rem 0.25rem', borderRadius: '4px' }}
+                                >
+                                  <ArrowRight width={10} height={10} />
+                                </button>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
 
                     {stageLeads.length === 0 && (
                       <div className="kanban-empty">Sin leads</div>
