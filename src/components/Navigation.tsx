@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -47,13 +48,13 @@ export default function Navigation() {
           const isActive = pathname === item.href;
           return (
             <li key={item.href}>
-              <a
+              <Link
                 href={item.href}
                 className={`nav-item ${isActive ? 'active' : ''}`}
               >
                 {item.icon}
                 <span className="nav-label">{item.label}</span>
-              </a>
+              </Link>
             </li>
           );
         })}

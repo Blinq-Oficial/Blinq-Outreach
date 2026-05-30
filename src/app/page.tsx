@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useCallback } from 'react';
+import Link from 'next/link';
 import {
   Users,
   Mail,
@@ -219,11 +220,32 @@ export default function Dashboard() {
     if (nextIdx !== currentIndex) handleUpdateCrmStatus(leadId, stages[nextIdx].key as any);
   };
 
-  const filteredLeads = leads.filter(l =>
-    l.business_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    l.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    l.niche?.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const calculateLeadPotential = (lead: Lead): number => {
+    let score = 0;
+    // More issues = more potential for us to sell a redesign!
+    if (Array.isArray(lead.website_issues)) {
+      score += lead.website_issues.length * 15;
+      lead.website_issues.forEach(issue => {
+        const lower = issue.toLowerCase();
+        if (lower.includes('lento') || lower.includes('tiempo') || lower.includes('carga')) score += 20;
+        if (lower.includes('móvil') || lower.includes('celular') || lower.includes('responsive') || lower.includes('pantalla')) score += 25;
+        if (lower.includes('caído') || lower.includes('inactivo') || lower.includes('responde')) score += 30;
+      });
+    }
+    // High rating but poor website = premium high-ticket prospect with budget!
+    if (lead.google_rating) {
+      score += lead.google_rating * 10;
+    }
+    return score;
+  };
+
+  const sortedLeads = [...leads]
+    .filter(l =>
+      l.business_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      l.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      l.niche?.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    .sort((a, b) => calculateLeadPotential(b) - calculateLeadPotential(a));
 
   const conversionRate = stats.total > 0 ? ((stats.sent / stats.total) * 100).toFixed(0) : '0';
 
@@ -273,9 +295,9 @@ export default function Dashboard() {
               <><Rocket width={14} height={14} style={{ color: '#a855f7' }} /> Enviar Batch (100 max)</>
             )}
           </button>
-          <a href="/inbox" className="btn btn-primary" style={{ borderRadius: '12px', padding: '0.65rem 1.25rem', background: 'linear-gradient(135deg, #a855f7, #6366f1)' }}>
+          <Link href="/inbox" className="btn btn-primary" style={{ borderRadius: '12px', padding: '0.65rem 1.25rem', background: 'linear-gradient(135deg, #a855f7, #6366f1)' }}>
             <Zap width={14} height={14} /> Inbox Diario
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -293,7 +315,7 @@ export default function Dashboard() {
         <div className="sapphire-card" style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
             <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'rgba(255, 255, 255, 0.4)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Audited Base</span>
-            <span style={{ fontSize: '0.72rem', color: '#a855f7', fontWeight: 600, cursor: 'pointer' }}>View all</span>
+            <span onClick={() => document.getElementById('pipeline-section')?.scrollIntoView({ behavior: 'smooth' })} style={{ fontSize: '0.72rem', color: '#a855f7', fontWeight: 600, cursor: 'pointer' }}>View all</span>
           </div>
           
           <div style={{ fontSize: '3.2rem', fontWeight: 900, letterSpacing: '-0.05em', color: '#ffffff', lineHeight: 1 }}>
@@ -402,7 +424,7 @@ export default function Dashboard() {
               <div className="sapphire-kpi-icon" style={{ color: kpi.color }}>
                 {kpi.icon}
               </div>
-              <span className="sapphire-kpi-view-all">View all</span>
+              <span onClick={() => document.getElementById('pipeline-section')?.scrollIntoView({ behavior: 'smooth' })} className="sapphire-kpi-view-all" style={{ cursor: 'pointer' }}>View all</span>
             </div>
             
             <span style={{ fontSize: '0.72rem', color: 'rgba(255, 255, 255, 0.4)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>{kpi.label}</span>
@@ -424,7 +446,7 @@ export default function Dashboard() {
             <h3 style={{ fontSize: '0.85rem', fontWeight: 800, color: '#ffffff', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <BarChart3 width={14} height={14} style={{ color: '#a855f7' }} /> Weekly Engagement Heatmap
             </h3>
-            <span className="sapphire-kpi-view-all">View all</span>
+            <span onClick={() => document.getElementById('pipeline-section')?.scrollIntoView({ behavior: 'smooth' })} className="sapphire-kpi-view-all" style={{ cursor: 'pointer' }}>View all</span>
           </div>
 
           <div className="sapphire-heatmap-grid" style={{ marginBottom: '1rem' }}>
@@ -486,7 +508,7 @@ export default function Dashboard() {
       </section>
 
       {/* ── Divider to CRM Pipeline Board Panel ── */}
-      <div className="divider" style={{ borderBottom: '1px solid rgba(255,255,255,0.04)', margin: '2rem 0' }} />
+      <div id="pipeline-section" className="divider" style={{ borderBottom: '1px solid rgba(255,255,255,0.04)', margin: '2rem 0' }} />
 
       {/* ── Fully Interactive CRM Pipeline and Kanban Area ── */}
       <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '1rem', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -528,7 +550,7 @@ export default function Dashboard() {
         ) : viewMode === 'kanban' ? (
           <div className="kanban-board">
             {stages.map(stage => {
-              const stageLeads = filteredLeads.filter(l => l.crm_status === stage.key);
+              const stageLeads = sortedLeads.filter(l => l.crm_status === stage.key);
               return (
                 <div key={stage.key} className="kanban-column" style={{ background: 'rgba(10,10,16,0.4)', borderRadius: '16px' }}>
                   <div className="kanban-column-header" style={{ borderBottomColor: stage.color, color: stage.color }}>
@@ -543,6 +565,12 @@ export default function Dashboard() {
                     {stageLeads.map(lead => (
                       <div key={lead.lead_id} className="kanban-card" style={{ borderLeft: `3px solid ${stage.color}`, background: 'rgba(20, 20, 30, 0.6)', borderRadius: '12px' }}>
                         <span className="kanban-card-name">{lead.business_name}</span>
+                        
+                        {/* WEBSITE URL DISPLAY */}
+                        <a href={lead.website} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.72rem', color: '#3b82f6', textDecoration: 'underline', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', display: 'block', margin: '0.15rem 0' }}>
+                          {lead.website.replace('https://', '').replace('http://', '').replace('www.', '')}
+                        </a>
+
                         <span className="kanban-card-meta">
                           <MapPin width={9} height={9} /> {lead.city.substring(0, 20)}
                         </span>
@@ -628,7 +656,7 @@ export default function Dashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredLeads.map((lead, idx) => (
+                  {sortedLeads.map((lead, idx) => (
                     <tr
                       key={lead.lead_id}
                       className="lead-table-row"
@@ -637,7 +665,13 @@ export default function Dashboard() {
                       <td style={{ padding: '0.85rem 1rem' }}>
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                           <span style={{ fontWeight: 600, color: '#ffffff' }}>{lead.business_name}</span>
-                          <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', gap: '0.2rem', marginTop: '0.1rem' }}>
+                          
+                          {/* WEBSITE URL DISPLAY IN LIST */}
+                          <a href={lead.website} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.72rem', color: '#3b82f6', textDecoration: 'underline', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', display: 'block', margin: '0.1rem 0' }}>
+                            {lead.website.replace('https://', '').replace('http://', '').replace('www.', '')}
+                          </a>
+
+                          <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
                             <MapPin width={10} height={10} /> {lead.city}
                           </span>
                         </div>
