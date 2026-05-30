@@ -20,7 +20,7 @@ if (fs.existsSync(envPath)) {
   });
 }
 
-console.log('--- 🤖 BLINQ HUMANIZED CLIENTS FINDER AGENT ---');
+console.log('--- 🤖 BLINQ HUMANIZED PORTFOLIO-DRIVEN FINDER ---');
 console.log('Gemini API Connection:', process.env.GEMINI_API_KEY ? 'Active ✅' : 'Missing ❌');
 
 if (!process.env.GEMINI_API_KEY) {
@@ -134,7 +134,7 @@ const premiumProspects = [
   }
 ];
 
-// Call Gemini API using strictly humanized copywriting rules (www. URLs and no AI buzzwords)
+// Call Gemini API using strictly humanized, portfolio-driven copywriting rules (no Figma visual sketches, redirects to blinqoficial.com)
 async function generateHighResponseEmail(lead, niche, city) {
   const model = genAI.getGenerativeModel({ 
     model: 'gemini-2.5-flash',
@@ -154,7 +154,7 @@ async function generateHighResponseEmail(lead, niche, city) {
   const humanUrl = `www.${rawDomain}`;
 
   const prompt = `
-Eres un desarrollador y diseñador web independiente del equipo de Blinq (www.blinqoficial.com). 
+Eres un desarrollador web del equipo de Blinq (www.blinqoficial.com).
 Escribirás un correo frío de prospección sumamente humano, natural, cercano e informal para:
 - Nombre del Negocio: ${lead.businessName}
 - Sitio Web Real: ${lead.website}
@@ -165,13 +165,13 @@ Escribirás un correo frío de prospección sumamente humano, natural, cercano e
 Sigue estrictamente las siguientes reglas de copywriting humanizado:
 1. Comienza presentándote de forma conversacional: "Hola, me presento: soy David en el equipo de Blinq (www.blinqoficial.com). Estábamos buscando [Nicho] en [Ciudad] y nos encontramos tu página web..."
 2. Formatea la URL del cliente en el correo de forma humana como: "${humanUrl}". NUNCA pongas protocolos 'https://' o 'http://' en el cuerpo, y NUNCA pongas links entre paréntesis.
-3. Queda COMPLETAMENTE PROHIBIDO mencionar términos corporativos o de Inteligencia Artificial que suenen falsos o robóticos:
-   - NO menciones: "Inteligencia Artificial", "IA", "SGE", "Google", "ChatGPT", "SJI", "Plan Protocol Ignition", "cero anticipo" ni "código puro".
-   - El correo debe sonar como si lo redactara un programador local que quiere ayudar sinceramente a un negocio con buena reputación.
-4. Detalla los problemas técnicos de su web (lento en celulares, imágenes pesadas, botón de reserva escondido) de forma amigable: "noté que al entrar desde mi celular tarda un poco en cargar y algunos botones de reservas se cortan en la pantalla".
-5. Enfoque en Resultados de Negocio: Enmarca el problema alrededor del rendimiento comercial: "Esto suele causar que potenciales clientes locales se cansen de esperar y decidan buscar otra opción en la zona".
-6. CTA de baja fricción: Termina con una sola pregunta casual para abrir la conversación: "¿Te parece bien si te comparto el enlace de la propuesta por esta vía para que le echen un vistazo?"
-7. Estructura de Asunto Humana: Asuntos ultra-cortos (2-4 palabras) en minúsculas y con sutiles emojis, ej: "propuesta visual para ${lead.businessName} ⚡" o "idea rápida para ${lead.businessName} 🎨".
+3. Queda COMPLETAMENTE PROHIBIDO mencionar jerga de IA o detalles técnicos pesados y metodologías de diseño:
+   - NO menciones: "Figma", "boceto visual", "boceto interactivo", "boceto de diseño", "boceto en Figma", "Inteligencia Artificial", "IA", "SGE", "SJI", "ChatGPT", "Plan Protocol Ignition", "cero anticipo", ni "código puro".
+   - NO te centres en el "cómo" haremos el trabajo. Concéntrate en que podemos hacer una página web sobresaliente para ellos.
+4. Detalla los problemas de su web (lento en celulares, imágenes pesadas, botón de reserva escondido) de forma amigable: "noté que al entrar desde mi celular tarda un poco en cargar y algunos botones de reservas se cortan en la pantalla".
+5. Remite a nuestra página web y portafolio: Invítalos a revisar nuestra web "www.blinqoficial.com" para que vean ejemplos de lo que ya hemos hecho muy bien, bonito y barato para otros negocios del sector.
+6. CTA de baja fricción (Fácil de responder): Termina con una pregunta casual invitándolos a ver nuestro portafolio para ver si hacemos algo parecido para su negocio: "¿Te parece bien si le echas un vistazo a lo que ya hemos hecho en www.blinqoficial.com para ver si podemos hacer algo parecido para tu negocio?"
+7. Estructura de Asunto Humana: Asuntos ultra-cortos (2-4 palabras) en minúsculas y con sutiles emojis, ej: "página web para ${lead.businessName} ⚡" o "ejemplo de web para ${lead.businessName} 🎨".
 8. El cuerpo del correo DEBE tener estrictamente entre 80 y 110 palabras.
 
 Responde únicamente con un objeto JSON válido con la siguiente estructura:
@@ -188,8 +188,8 @@ Responde únicamente con un objeto JSON válido con la siguiente estructura:
   } catch (error) {
     console.warn(`[WARN] Quota limit or fetch error for ${lead.businessName}. Using optimized fallback...`);
     return {
-      subject: `idea rápida para ${lead.businessName} 🎨`,
-      body: `Hola,\n\nMe presento: soy David en el equipo de Blinq (www.blinqoficial.com). Estábamos buscando ${niche} en ${city} y nos encontramos tu página web ${humanUrl}. Tienen un excelente perfil y muy buenas reseñas de sus clientes.\n\nSin embargo, al visitarla desde mi celular noté que tarda bastante en cargar y algunos botones se desalinean en pantallas móviles. Esto suele hacer que potenciales clientes se cansen de esperar y busquen otra opción en la zona.\n\nSe me ocurrió armarles una propuesta visual en Figma de cómo se vería una versión móvil moderna y fluida de su página, gratis y sin compromiso.\n\n¿Te parece bien si te comparto la propuesta por aquí para que le echen un vistazo?\n\nSaludos,\nDavid\nBlinq`
+      subject: `página web para ${lead.businessName} ⚡`,
+      body: `Hola,\n\nMe presento: soy David en el equipo de Blinq (www.blinqoficial.com). Estábamos buscando ${niche} en ${city} y nos encontramos tu página web ${humanUrl}. Tienen un excelente perfil y muy buenas reseñas de sus clientes.\n\nSin embargo, al visitarla desde mi celular noté que tarda bastante en cargar y algunos botones se desalinean en celulares. Esto suele hacer que potenciales clientes se cansen de esperar y busquen otra opción en la zona.\n\nEn Blinq nos dedicamos a hacer páginas web que funcionan muy bien, bonitas y baratas. Te invito a revisar lo que ya hemos hecho en www.blinqoficial.com para que veas el potencial.\n\n¿Te parece bien si le echas un vistazo a lo que ya construimos para ver si hacemos algo parecido para tu negocio?\n\nSaludos,\nDavid\nBlinq`
     };
   }
 }
@@ -206,7 +206,7 @@ async function findAndSaveElevenLeads() {
   db.leads = db.leads || [];
   db.drafts = db.drafts || [];
 
-  // --- CLEAN PREVIOUS SIMULATED LEADS ---
+  // --- CLEAN PREVIOUS LEADS ---
   console.log('Cleaning previously simulated seed leads from database...');
   db.leads = db.leads.filter(l => !l.id.startsWith('lead-live-fresh-'));
   db.drafts = db.drafts.filter(d => !d.id.startsWith('draft-live-fresh-'));
@@ -217,18 +217,13 @@ async function findAndSaveElevenLeads() {
 
   for (let i = 0; i < premiumProspects.length; i++) {
     const f = premiumProspects[i];
-    
-    // Avoid duplicate check
-    if (db.leads.some(l => l.website === f.website && !l.id.startsWith('lead-live-fresh-'))) {
-      console.log(`  "${f.businessName}" is already actively monitored. Generating fresh copywriting draft...`);
-    }
 
     console.log(`[${i + 1}/11] Crawling Real Domain: "${f.businessName}" (${f.website})`);
     console.log(`  - Issues: ${f.issues.join(' | ')}`);
     console.log(`  - Geo-Target: ${f.city}`);
     console.log(`  - Verified Email: ${f.email}`);
     
-    console.log(`  - Generating Humanized Outreach Pitch...`);
+    console.log(`  - Generating Humanized Portfolio-Driven Pitch...`);
     const pitch = await generateHighResponseEmail(f, f.niche, f.city);
 
     processedLeads.push({
@@ -257,7 +252,7 @@ async function findAndSaveElevenLeads() {
       google_rating: 4.5,
       website_issues: lead.issues,
       crm_status: 'lead',
-      crm_notes: `[Auto Prospector] Calificado de forma real en ${lead.city}. Correo verificado: ${lead.email}. Sitio web clicable y visitable.`,
+      crm_notes: `[Auto Prospector] Calificado en ${lead.city}. Correo verificado: ${lead.email}. Prospección humanizada con redirección a portafolio Blinq.`,
       created_at: new Date().toISOString()
     };
 
@@ -266,7 +261,7 @@ async function findAndSaveElevenLeads() {
       lead_id: leadId,
       subject: lead.pitch.subject,
       pitch_email: lead.pitch.body,
-      pitch_dm: `¡Hola ${lead.businessName}! Notamos que su web móvil carga un poco lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?`,
+      pitch_dm: `¡Hola ${lead.businessName}! Notamos que su web móvil carga un poco lento. Hacemos diseño premium bueno, bonito y barato. ¿Le echas un vistazo a www.blinqoficial.com?`,
       status: 'pending_review',
       contact_channel: 'email',
       sent_at: null,
