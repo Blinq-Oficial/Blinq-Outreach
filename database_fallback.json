@@ -35,7 +35,7 @@
       ],
       "created_at": "2026-05-29T22:07:13.210Z",
       "crm_status": "contacted",
-      "crm_notes": "[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Resend Inbound] Respuesta recibida: \"Hola Equipo Blinq,Me parece muy interesante la propuesta de rediseño móvil y la verificación de IA que mencionan. Sí, me gustaría ver ese boceto vis...\""
+      "crm_notes": "[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Resend Inbound] Respuesta recibida: \"Hola Equipo Blinq,Me parece muy interesante la propuesta de rediseño móvil y la verificación de IA que mencionan. Sí, me gustaría ver ese boceto vis...\""
     },
     {
       "id": "lead-live-ht9fzt",
@@ -319,6 +319,17 @@
       "contact_channel": "email",
       "sent_at": "2026-05-30T17:33:06.540Z",
       "created_at": "2026-05-30T17:33:06.540Z"
+    },
+    {
+      "id": "draft-david-test",
+      "lead_id": "lead-1",
+      "subject": "Propuesta de optimización móvil para Blinq Test Studio ⚡",
+      "pitch_email": "Hola David,\n\nEstaba analizando la presencia móvil de Blinq Test Studio y noté excelentes valoraciones de tus clientes, pero al ingresar desde dispositivos móviles a su portal detectamos un par de detalles importantes de rendimiento:\n- Tiempo de carga móvil lento (>3.8s)\n- Diseño responsivo mejorable para facilitar la reserva directa de citas\n- Falta de optimización de código para búsquedas por Inteligencia Artificial (SGE / ChatGPT)\n\nHemos diseñado un boceto visual interactivo en Figma totalmente personalizado para tu marca, sin costo ni compromiso alguno. ¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.\n\nQuedo muy atento a tu respuesta,\nEquipo Blinq",
+      "pitch_dm": "",
+      "status": "sent",
+      "contact_channel": "email",
+      "sent_at": "2026-05-30T17:59:44.705Z",
+      "created_at": "2026-05-30T17:59:44.705Z"
     }
   ],
   "replies": [

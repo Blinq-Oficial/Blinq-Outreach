@@ -31,25 +31,71 @@ function saveDb(data) {
 async function sendOutreachEmail(to, subject, bodyText) {
   const htmlBody = bodyText.replace(/\n/g, '<br />');
   const html = `
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><style>
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif; color: #f3f4f6; line-height: 1.6; padding: 32px 16px; background: #09090b; }
-.container { max-width: 580px; margin: 0 auto; background: #121214; border-radius: 16px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.06); }
-.brand-header { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 20px; }
-.brand-logo-text { font-size: 22px; font-weight: 900; letter-spacing: -0.04em; background: linear-gradient(135deg, #ffffff 40%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.body-text { font-size: 15px; color: #d1d5db; }
-.pricing { margin-top: 28px; padding: 16px; background: linear-gradient(135deg, #a855f7, #6366f1); color: #fff; border-radius: 12px; font-size: 14px; text-align: center; font-weight: 700; box-shadow: 0 4px 15px rgba(168,85,247,0.3); }
-.pricing strong { color: #22c55e; background: rgba(255,255,255,0.15); padding: 2px 6px; border-radius: 4px; }
-.footer { margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 11px; color: #6b7280; text-align: center; }
-.footer a { color: #a855f7; text-decoration: none; }
-</style></head><body>
+<!DOCTYPE html><html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #e4e4e7; line-height: 1.6; padding: 40px 20px; background-color: #09090b; margin: 0; }
+.container { max-width: 580px; margin: 0 auto; background: #121214; border-radius: 16px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.06); }
+.header { text-align: center; margin-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 24px; }
+.logo-img { width: 120px; height: auto; display: inline-block; }
+.heading { font-size: 20px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 20px; }
+.body-text { font-size: 15px; color: #a1a1aa; margin-bottom: 24px; }
+.bullet-list { list-style: none; padding-left: 0; margin: 20px 0; }
+.bullet-item { display: flex; items-center: center; gap: 10px; margin-bottom: 12px; font-size: 14.5px; color: #d4d4d8; }
+.bullet-icon { color: #ec4899; font-weight: bold; }
+.mockup-showcase { margin: 28px 0; padding: 20px; background: rgba(168, 85, 247, 0.04); border: 1px dashed rgba(168, 85, 247, 0.3); border-radius: 12px; text-align: center; }
+.mockup-title { font-size: 14px; font-weight: 700; color: #c084fc; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+.mockup-desc { font-size: 13.5px; color: #a1a1aa; }
+.pricing-block { margin-top: 32px; padding: 24px; background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%); border-radius: 12px; border: 1px solid rgba(168, 85, 247, 0.2); text-align: center; box-shadow: 0 4px 20px rgba(168, 85, 247, 0.15); }
+.pricing-title { font-size: 13px; font-weight: 800; color: #c084fc; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+.pricing-value { font-size: 32px; font-weight: 900; color: #ffffff; letter-spacing: -0.03em; margin: 8px 0; }
+.pricing-value span { font-size: 14px; color: #a1a1aa; font-weight: 500; }
+.pricing-benefit { font-size: 13.5px; color: #34d399; font-weight: 600; margin-top: 8px; }
+.footer { margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 11px; color: #71717a; text-align: center; }
+.footer a { color: #c084fc; text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
 <div class="container">
-<div class="brand-header">
-<span class="brand-logo-text">Blinq.</span>
+  <div class="header">
+    <img src="https://blinq-outreach.vercel.app/logo.png" alt="Blinq" class="logo-img">
+  </div>
+  
+  <h2 class="heading">Propuesta de Optimización Móvil y Presencia IA</h2>
+  
+  <div class="body-text">
+    Hola David,<br/><br/>
+    Estaba analizando la presencia móvil de <strong>Blinq Test Studio</strong> y noté excelentes valoraciones de tus clientes, pero al ingresar desde dispositivos móviles a su portal detectamos un par de detalles importantes de rendimiento:
+    
+    <ul class="bullet-list">
+      <li class="bullet-item"><span class="bullet-icon">⚡</span> Tiempo de carga móvil lento (>3.8s), lo que causa pérdidas de visitas.</li>
+      <li class="bullet-item"><span class="bullet-icon">📱</span> Diseño responsivo mejorable para facilitar la reserva directa de citas.</li>
+      <li class="bullet-item"><span class="bullet-icon">🤖</span> Falta de optimización de código para búsquedas por Inteligencia Artificial (SGE / ChatGPT).</li>
+    </ul>
+  </div>
+  
+  <div class="mockup-showcase">
+    <div class="mockup-title">🎁 Regalo de Pre-Operación</div>
+    <div class="mockup-desc">
+      Hemos diseñado un <strong>boceto visual interactivo en Figma</strong> totalmente personalizado para tu marca, sin costo ni compromiso alguno. ¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.
+    </div>
+  </div>
+
+  <div class="pricing-block">
+    <div class="pricing-title">PLAN PROTOCOL IGNITION</div>
+    <div class="pricing-value">$50 <span>USD</span></div>
+    <div class="pricing-benefit">✓ Entrega en 48 Horas · Código Puro (Sin WordPress) · $0 Pago Inicial</div>
+  </div>
+  
+  <div class="footer">
+    Enviado por Blinq · <a href="https://blinqoficial.com">blinqoficial.com</a><br/>
+    Para dejar de recibir estas propuestas, responde "no gracias".
+  </div>
 </div>
-<div class="body-text">${htmlBody}</div>
-<div class="pricing">⚡ Plan PROTOCOL IGNITION — <strong>$50 USD / $1,000 MXN</strong> — Entrega en 48h — $0 anticipo</div>
-<div class="footer">Blinq · <a href="https://blinqoficial.com">blinqoficial.com</a><br/>Para no recibir más correos, responde "no gracias".</div>
-</div></body></html>`;
+</body>
+</html>`;
 
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
@@ -112,8 +158,8 @@ async function main() {
   }
 
   // 3. Send real email via Resend
-  const subject = 'Propuesta de mejora web para Blinq Test Studio ⚡';
-  const bodyText = `Hola David Aguirre,\n\nEstaba revisando la presencia móvil de Blinq Test Studio y noté excelentes valoraciones de tus clientes, pero al ingresar desde mi celular a blinqoficial.com detecté un par de detalles importantes de rendimiento:\n- Tiempo de carga móvil lento (>3.8s)\n- Falta botón de agendamiento directo en portada\n\nEn Blinq creamos páginas web premium optimizadas para conversiones inmediatas.\n\nPor favor, responde a este correo con un mensaje corto de prueba (por ejemplo, "me interesa ver el boceto"). Al hacerlo, validaremos que el Webhook de Resend en producción funcione al 100%, actualice automáticamente tu tarjeta a "Respondió" (🔥) e inyecte tu respuesta en tiempo real en la bandeja de entrada del Dashboard.\n\nQuedo muy atento a tu respuesta,\nEquipo Blinq`;
+  const subject = 'Propuesta de optimización móvil para Blinq Test Studio ⚡';
+  const bodyText = `Hola David,\n\nEstaba analizando la presencia móvil de Blinq Test Studio y noté excelentes valoraciones de tus clientes, pero al ingresar desde dispositivos móviles a su portal detectamos un par de detalles importantes de rendimiento:\n- Tiempo de carga móvil lento (>3.8s)\n- Diseño responsivo mejorable para facilitar la reserva directa de citas\n- Falta de optimización de código para búsquedas por Inteligencia Artificial (SGE / ChatGPT)\n\nHemos diseñado un boceto visual interactivo en Figma totalmente personalizado para tu marca, sin costo ni compromiso alguno. ¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.\n\nQuedo muy atento a tu respuesta,\nEquipo Blinq`;
 
   console.log(`📡 Enviando correo de prospección real a: ${RECIPIENT_EMAIL}...`);
   try {
