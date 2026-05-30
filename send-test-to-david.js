@@ -32,17 +32,23 @@ async function sendOutreachEmail(to, subject, bodyText) {
   const htmlBody = bodyText.replace(/\n/g, '<br />');
   const html = `
 <!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><style>
-body { font-family: -apple-system, sans-serif; color: #1a1a1a; line-height: 1.6; padding: 20px; background: #f9f9f9; }
-.container { max-width: 580px; margin: 0 auto; background: #fff; border-radius: 8px; padding: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-.body-text { font-size: 15px; color: #333; }
-.pricing { margin-top: 20px; padding: 12px; background: linear-gradient(135deg, #0a0a0a, #1a1a2e); color: #fff; border-radius: 6px; font-size: 14px; text-align: center; }
-.pricing strong { color: #4ade80; }
-.footer { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; font-size: 11px; color: #999; text-align: center; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif; color: #f3f4f6; line-height: 1.6; padding: 32px 16px; background: #09090b; }
+.container { max-width: 580px; margin: 0 auto; background: #121214; border-radius: 16px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.06); }
+.brand-header { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 20px; }
+.brand-logo-text { font-size: 22px; font-weight: 900; letter-spacing: -0.04em; background: linear-gradient(135deg, #ffffff 40%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.body-text { font-size: 15px; color: #d1d5db; }
+.pricing { margin-top: 28px; padding: 16px; background: linear-gradient(135deg, #a855f7, #6366f1); color: #fff; border-radius: 12px; font-size: 14px; text-align: center; font-weight: 700; box-shadow: 0 4px 15px rgba(168,85,247,0.3); }
+.pricing strong { color: #22c55e; background: rgba(255,255,255,0.15); padding: 2px 6px; border-radius: 4px; }
+.footer { margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 11px; color: #6b7280; text-align: center; }
+.footer a { color: #a855f7; text-decoration: none; }
 </style></head><body>
 <div class="container">
+<div class="brand-header">
+<span class="brand-logo-text">Blinq.</span>
+</div>
 <div class="body-text">${htmlBody}</div>
 <div class="pricing">⚡ Plan PROTOCOL IGNITION — <strong>$50 USD / $1,000 MXN</strong> — Entrega en 48h — $0 anticipo</div>
-<div class="footer">Blinq Oficial · <a href="https://blinqoficial.com">blinqoficial.com</a><br/>Para no recibir más correos, responde "no gracias".</div>
+<div class="footer">Blinq · <a href="https://blinqoficial.com">blinqoficial.com</a><br/>Para no recibir más correos, responde "no gracias".</div>
 </div></body></html>`;
 
   const res = await fetch('https://api.resend.com/emails', {
