@@ -68,12 +68,37 @@ export async function POST(request: Request) {
     // Handle both nested data structure from Resend webhook payload or direct flat structure
     const emailData = body.data || body;
     
-    const from = emailData.from || '';
-    const to = emailData.to || [];
-    const subject = emailData.subject || '(Sin Asunto)';
-    const text = emailData.text || '';
-    const html = emailData.html || emailData.text || '';
-    const date = emailData.date || new Date().toISOString();
+    let from = emailData.from || '';
+    let to = emailData.to || [];
+    let subject = emailData.subject || '(Sin Asunto)';
+    let text = emailData.text || '';
+    let html = emailData.html || emailData.text || '';
+    let date = emailData.date || new Date().toISOString();
+
+    const emailId = emailData.email_id;
+    if (emailId) {
+      console.log(`[Resend Webhook] Fetching full email content for email_id: ${emailId}`);
+      const apiKey = process.env.RESEND_API_KEY || 're_6FDNPXWp_BTCte5UrKDo2Uc6x4T3eAxr1';
+      try {
+        const res = await fetch(`https://api.resend.com/emails/${emailId}`, {
+          headers: { 'Authorization': `Bearer ${apiKey}` }
+        });
+        if (res.ok) {
+          const fullEmail = await res.json();
+          console.log('[Resend Webhook] Full email fetched successfully:', JSON.stringify(fullEmail));
+          from = fullEmail.from || from;
+          to = fullEmail.to || to;
+          subject = fullEmail.subject || subject;
+          text = fullEmail.text || text;
+          html = fullEmail.html || html;
+          date = fullEmail.created_at || date;
+        } else {
+          console.error(`[Resend Webhook] Failed to fetch email details: ${res.status}`);
+        }
+      } catch (err: any) {
+        console.error('[Resend Webhook] Error fetching email details:', err.message);
+      }
+    }
 
     if (!from) {
       return NextResponse.json({ error: 'Sender field (from) is required.' }, { status: 400 });
