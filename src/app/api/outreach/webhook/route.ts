@@ -75,12 +75,13 @@ export async function POST(request: Request) {
     let html = emailData.html || emailData.text || '';
     let date = emailData.date || new Date().toISOString();
 
-    const emailId = emailData.email_id;
+    const emailId = emailData.email_id || emailData.id;
     if (emailId) {
       console.log(`[Resend Webhook] Fetching full email content for email_id: ${emailId}`);
       const apiKey = process.env.RESEND_API_KEY || 're_6FDNPXWp_BTCte5UrKDo2Uc6x4T3eAxr1';
       try {
-        const res = await fetch(`https://api.resend.com/emails/${emailId}`, {
+        // Use the official Resend receiving endpoint
+        const res = await fetch(`https://api.resend.com/emails/receiving/${emailId}`, {
           headers: { 'Authorization': `Bearer ${apiKey}` }
         });
         if (res.ok) {
@@ -93,7 +94,20 @@ export async function POST(request: Request) {
           html = fullEmail.html || html;
           date = fullEmail.created_at || date;
         } else {
-          console.error(`[Resend Webhook] Failed to fetch email details: ${res.status}`);
+          console.error(`[Resend Webhook] Failed to fetch email details via receiving endpoint: ${res.status}`);
+          // Fallback to traditional endpoint just in case
+          const fallbackRes = await fetch(`https://api.resend.com/emails/${emailId}`, {
+            headers: { 'Authorization': `Bearer ${apiKey}` }
+          });
+          if (fallbackRes.ok) {
+            const fullEmail = await fallbackRes.json();
+            from = fullEmail.from || from;
+            to = fullEmail.to || to;
+            subject = fullEmail.subject || subject;
+            text = fullEmail.text || text;
+            html = fullEmail.html || html;
+            date = fullEmail.created_at || date;
+          }
         }
       } catch (err: any) {
         console.error('[Resend Webhook] Error fetching email details:', err.message);
