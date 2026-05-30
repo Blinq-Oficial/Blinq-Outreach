@@ -51,6 +51,7 @@ body { font-family: -apple-system, sans-serif; color: #1a1a1a; line-height: 1.6;
     body: JSON.stringify({
       from: `${SENDER_NAME} <${SENDER_EMAIL}>`,
       to: [to],
+      reply_to: 'reply@enteayon.resend.app',
       subject: subject,
       text: bodyText,
       html: html

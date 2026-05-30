@@ -35,7 +35,7 @@
       ],
       "created_at": "2026-05-29T22:07:13.210Z",
       "crm_status": "contacted",
-      "crm_notes": "[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Resend Inbound] Respuesta recibida: \"Hola Equipo Blinq,Me parece muy interesante la propuesta de rediseño móvil y la verificación de IA que mencionan. Sí, me gustaría ver ese boceto vis...\""
+      "crm_notes": "[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Resend Inbound] Respuesta recibida: \"Hola Equipo Blinq,Me parece muy interesante la propuesta de rediseño móvil y la verificación de IA que mencionan. Sí, me gustaría ver ese boceto vis...\""
     },
     {
       "id": "lead-live-ht9fzt",
@@ -286,6 +286,17 @@
       "contact_channel": "email",
       "sent_at": "2026-05-30T16:32:42.443Z",
       "created_at": "2026-05-30T16:32:42.444Z"
+    },
+    {
+      "id": "draft-david-test",
+      "lead_id": "lead-1",
+      "subject": "Propuesta de mejora web para Blinq Test Studio ⚡",
+      "pitch_email": "Hola David Aguirre,\n\nEstaba revisando la presencia móvil de Blinq Test Studio y noté excelentes valoraciones de tus clientes, pero al ingresar desde mi celular a blinqoficial.com detecté un par de detalles importantes de rendimiento:\n- Tiempo de carga móvil lento (>3.8s)\n- Falta botón de agendamiento directo en portada\n\nEn Blinq creamos páginas web premium optimizadas para conversiones inmediatas.\n\nPor favor, responde a este correo con un mensaje corto de prueba (por ejemplo, \"me interesa ver el boceto\"). Al hacerlo, validaremos que el Webhook de Resend en producción funcione al 100%, actualice automáticamente tu tarjeta a \"Respondió\" (🔥) e inyecte tu respuesta en tiempo real en la bandeja de entrada del Dashboard.\n\nQuedo muy atento a tu respuesta,\nEquipo Blinq",
+      "pitch_dm": "",
+      "status": "sent",
+      "contact_channel": "email",
+      "sent_at": "2026-05-30T17:12:34.354Z",
+      "created_at": "2026-05-30T17:12:34.355Z"
     }
   ],
   "replies": [
