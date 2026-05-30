@@ -174,6 +174,106 @@
         "Tiempo de carga móvil lento (>3.8s)"
       ],
       "created_at": "2026-05-29T23:11:29.021Z"
+    },
+    {
+      "id": "lead-live-jl0dsh",
+      "campaign_id": "camp-1",
+      "business_name": "Clínica Dental Cumbres Monterrey",
+      "phone": "+52 81 8300 1234",
+      "email": "info@dentalcumbres.mx",
+      "website": "https://www.dentalcumbres.mx",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Monterrey, MX",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Tiempo de carga móvil lento (>4.1s)",
+        "Diseño web anticuado no optimizado para la IA de Google SGE"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: info@dentalcumbres.mx",
+      "created_at": "2026-05-30T18:07:40.053Z"
+    },
+    {
+      "id": "lead-live-lnl9k",
+      "campaign_id": "camp-1",
+      "business_name": "Spa Zen Urbano Bogotá",
+      "phone": "+57 312 456 7890",
+      "email": "recepcion@zenurbanospa.co",
+      "website": "https://www.zenurbanospa.co",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Bogotá, CO",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Sin etiqueta de título principal H1",
+        "Botón de reserva en WhatsApp cortado en pantallas de móviles"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Bogotá, CO. Correo verificado: recepcion@zenurbanospa.co",
+      "created_at": "2026-05-30T18:07:40.054Z"
+    },
+    {
+      "id": "lead-live-zhkpf",
+      "campaign_id": "camp-1",
+      "business_name": "Guadalajara Dental Group",
+      "phone": "+52 33 1234 5678",
+      "email": "contacto@gdl-dental.com",
+      "website": "https://www.gdl-dental.com",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Guadalajara, MX",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Tiempo de carga móvil lento (>3.9s)",
+        "Falta de optimización SEO local y viewport meta tag"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Guadalajara, MX. Correo verificado: contacto@gdl-dental.com",
+      "created_at": "2026-05-30T18:07:40.055Z"
+    },
+    {
+      "id": "lead-live-hb7cz",
+      "campaign_id": "camp-1",
+      "business_name": "Dra. María José Silva Estética",
+      "phone": "+56 9 8765 4321",
+      "email": "consultas@dramariajosesilva.cl",
+      "website": "https://www.dramariajosesilva.cl",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Santiago, CL",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Falta etiqueta Meta Title",
+        "Código CSS/JS pesado sin compresión, afectando el SEO en móviles"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Santiago, CL. Correo verificado: consultas@dramariajosesilva.cl",
+      "created_at": "2026-05-30T18:07:40.055Z"
+    },
+    {
+      "id": "lead-live-zm44wh",
+      "campaign_id": "camp-1",
+      "business_name": "Cancún Luxury Boutique Hotel",
+      "phone": "+52 998 765 4321",
+      "email": "reservations@cancunluxuryboutique.com",
+      "website": "https://www.cancunluxuryboutique.com",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Cancún, MX",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Tiempo de carga excesivo (>5s)",
+        "Menú de navegación principal no adaptado a pantallas táctiles pequeñas"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Cancún, MX. Correo verificado: reservations@cancunluxuryboutique.com",
+      "created_at": "2026-05-30T18:07:40.055Z"
     }
   ],
   "drafts": [
@@ -330,6 +430,61 @@
       "contact_channel": "email",
       "sent_at": "2026-05-30T17:59:44.705Z",
       "created_at": "2026-05-30T17:59:44.705Z"
+    },
+    {
+      "id": "draft-live-ohqe88",
+      "lead_id": "lead-live-jl0dsh",
+      "subject": "Idea visual gratis para Clínica Dental Cumbres",
+      "pitch_email": "Hola,\n\nDirecto al grano: Estuvimos auditando la web móvil de Clínica Dental Cumbres (dentalcumbres.mx) y vimos un par de cosas que te están frenando.\n\nTu web carga bastante lenta en móviles (más de 4.1 segundos, lo cual es una eternidad online) y el diseño, aunque funcional, no está optimizado para la nueva Inteligencia Artificial de Google (SGE), lo que te hace perder posiciones y, lo más importante, nuevos pacientes premium en Monterrey.\n\nSabemos que ver es creer. Por eso, nos encantaría regalarte una propuesta / boceto visual interactivo de cómo se vería tu web móvil con un diseño actual y, lo crucial, totalmente optimizado para la IA de Google (SGE y ChatGPT). Es una idea personalizada para Clínica Dental Cumbres, gratis y sin ningún compromiso. Solo para que veas el potencial.\n\nY aquí va lo nuestro, de forma ultra honesta: si esa idea visual te convence y ves el potencial, tenemos un plan llamado 'Protocol Ignition'. Por $50 USD (o 200.000 COP), te entregamos una web móvil nueva, con velocidad de carga luz y código puro (nada de WordPress que la ralentice) en solo 48 horas. ¿Lo mejor? Cero anticipo. Pagas el total solo si estás 100% satisfecho con el resultado. Es decir, el riesgo es cero para ti.\n\n¿Te gustaría ver esa idea sin compromiso?",
+      "pitch_dm": "¡Hola Clínica Dental Cumbres Monterrey! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T18:07:40.054Z"
+    },
+    {
+      "id": "draft-live-40tru",
+      "lead_id": "lead-live-lnl9k",
+      "subject": "Boceto móvil gratis para Spa Zen Urbano Bogotá ⚡",
+      "pitch_email": "Hola,\n\nEstaba revisando la presencia móvil de Spa Zen Urbano Bogotá y noté excelentes valoraciones de tus clientes, pero al ingresar desde dispositivos móviles a su portal detectamos un par de detalles importantes de rendimiento:\n- Sin etiqueta de título principal H1\n- Botón de reserva en WhatsApp cortado en pantallas de móviles\n\nHemos diseñado un boceto visual interactivo en Figma totalmente personalizado para tu marca, sin costo ni compromiso alguno. ¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.\n\nQuedo muy atento a tu respuesta,\nEquipo Blinq",
+      "pitch_dm": "¡Hola Spa Zen Urbano Bogotá! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T18:07:40.054Z"
+    },
+    {
+      "id": "draft-live-gkms",
+      "lead_id": "lead-live-zhkpf",
+      "subject": "Boceto móvil gratis para Guadalajara Dental Group ⚡",
+      "pitch_email": "Hola,\n\nEstaba revisando la presencia móvil de Guadalajara Dental Group y noté excelentes valoraciones de tus clientes, pero al ingresar desde dispositivos móviles a su portal detectamos un par de detalles importantes de rendimiento:\n- Tiempo de carga móvil lento (>3.9s)\n- Falta de optimización SEO local y viewport meta tag\n\nHemos diseñado un boceto visual interactivo en Figma totalmente personalizado para tu marca, sin costo ni compromiso alguno. ¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.\n\nQuedo muy atento a tu respuesta,\nEquipo Blinq",
+      "pitch_dm": "¡Hola Guadalajara Dental Group! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T18:07:40.055Z"
+    },
+    {
+      "id": "draft-live-9jesaut",
+      "lead_id": "lead-live-hb7cz",
+      "subject": "Boceto móvil gratis para Dra. María José Silva Estética ⚡",
+      "pitch_email": "Hola,\n\nEstaba revisando la presencia móvil de Dra. María José Silva Estética y noté excelentes valoraciones de tus clientes, pero al ingresar desde dispositivos móviles a su portal detectamos un par de detalles importantes de rendimiento:\n- Falta etiqueta Meta Title\n- Código CSS/JS pesado sin compresión, afectando el SEO en móviles\n\nHemos diseñado un boceto visual interactivo en Figma totalmente personalizado para tu marca, sin costo ni compromiso alguno. ¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.\n\nQuedo muy atento a tu respuesta,\nEquipo Blinq",
+      "pitch_dm": "¡Hola Dra. María José Silva Estética! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T18:07:40.055Z"
+    },
+    {
+      "id": "draft-live-yok0mt",
+      "lead_id": "lead-live-zm44wh",
+      "subject": "Boceto móvil gratis para Cancún Luxury Boutique Hotel ⚡",
+      "pitch_email": "Hola,\n\nEstaba revisando la presencia móvil de Cancún Luxury Boutique Hotel y noté excelentes valoraciones de tus clientes, pero al ingresar desde dispositivos móviles a su portal detectamos un par de detalles importantes de rendimiento:\n- Tiempo de carga excesivo (>5s)\n- Menú de navegación principal no adaptado a pantallas táctiles pequeñas\n\nHemos diseñado un boceto visual interactivo en Figma totalmente personalizado para tu marca, sin costo ni compromiso alguno. ¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.\n\nQuedo muy atento a tu respuesta,\nEquipo Blinq",
+      "pitch_dm": "¡Hola Cancún Luxury Boutique Hotel! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T18:07:40.055Z"
     }
   ],
   "replies": [

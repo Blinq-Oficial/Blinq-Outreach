@@ -145,6 +145,22 @@ function initDb(): LocalDatabase {
 
 const db = initDb();
 
+function loadDb(): LocalDatabase {
+  if (fs.existsSync(DB_FILE)) {
+    try {
+      const content = fs.readFileSync(DB_FILE, 'utf8');
+      const parsed = JSON.parse(content) as LocalDatabase;
+      db.campaigns = parsed.campaigns || [];
+      db.leads = parsed.leads || [];
+      db.drafts = parsed.drafts || [];
+      db.replies = parsed.replies || [];
+    } catch (e) {
+      console.error('Error reloading local fallback database:', e);
+    }
+  }
+  return db;
+}
+
 function saveDb() {
   fs.writeFileSync(DB_FILE, JSON.stringify(db, null, 2));
 }
@@ -158,10 +174,12 @@ export function isSupabaseConfigured(): boolean {
 
 export const localDb = {
   getCampaigns: () => {
+    loadDb();
     return db.campaigns;
   },
   
   createCampaign: (niche: string, city: string) => {
+    loadDb();
     const existing = db.campaigns.find(c => c.niche.toLowerCase() === niche.toLowerCase() && c.city.toLowerCase() === city.toLowerCase());
     if (existing) return existing;
     
@@ -178,10 +196,12 @@ export const localDb = {
   },
 
   getCampaignById: (id: string) => {
+    loadDb();
     return db.campaigns.find(c => c.id === id);
   },
 
   getLeads: (campaignId?: string, status?: string) => {
+    loadDb();
     let result = db.leads.map(lead => {
       const campaign = db.campaigns.find(c => c.id === lead.campaign_id);
       const draft = db.drafts.find(d => d.lead_id === lead.id);
@@ -224,6 +244,7 @@ export const localDb = {
   },
 
   createLead: (campaignId: string, lead: Omit<LocalLead, 'id' | 'campaign_id' | 'created_at'>) => {
+    loadDb();
     const existing = db.leads.find(l => l.campaign_id === campaignId && l.website === lead.website);
     if (existing) return existing;
 
@@ -241,6 +262,7 @@ export const localDb = {
   },
 
   createDraft: (leadId: string, draft: Omit<LocalDraft, 'id' | 'lead_id' | 'created_at'>) => {
+    loadDb();
     const existingIdx = db.drafts.findIndex(d => d.lead_id === leadId);
     
     const newDraft: LocalDraft = {
@@ -260,6 +282,7 @@ export const localDb = {
   },
 
   updateDraft: (leadId: string, updates: Partial<LocalDraft>) => {
+    loadDb();
     const draftIdx = db.drafts.findIndex(d => d.lead_id === leadId);
     if (draftIdx >= 0) {
       db.drafts[draftIdx] = { ...db.drafts[draftIdx], ...updates };
@@ -270,6 +293,7 @@ export const localDb = {
   },
 
   updateLeadCrm: (leadId: string, updates: { crm_status?: LocalLead['crm_status']; crm_notes?: string }) => {
+    loadDb();
     const leadIdx = db.leads.findIndex(l => l.id === leadId);
     if (leadIdx >= 0) {
       db.leads[leadIdx] = { ...db.leads[leadIdx], ...updates };
@@ -280,10 +304,12 @@ export const localDb = {
   },
 
   getReplies: () => {
+    loadDb();
     return db.replies || [];
   },
 
   createReply: (reply: Omit<LocalReply, 'id' | 'created_at'>) => {
+    loadDb();
     db.replies = db.replies || [];
     const newReply: LocalReply = {
       ...reply,
