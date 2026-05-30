@@ -294,8 +294,8 @@
         "Tiempo de carga lento (>4s)",
         "No está optimizado para dispositivos móviles"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: contacto@dentacare.com.mx. Contacto directo con Dra. Laura Ortega (directora de DentaCare).",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Correo hiper-personalizado por nombre enviado vía Resend el 5/30/2026. Resend ID: 2ed8cdb8-40a4-4cc1-97b5-63198c8ebb9b\n[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: contacto@dentacare.com.mx. Contacto directo con Dra. Laura Ortega (directora de DentaCare).",
       "created_at": "2026-05-30T21:17:03.778Z"
     },
     {
@@ -314,8 +314,8 @@
         "Tiempo de carga móvil lento (>4.1s)",
         "Diseño móvil antiguo y botones de reserva desalineados"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: info@dentalcumbres.mx. Contacto directo con Dr. Javier Martínez (director médico).",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Correo hiper-personalizado por nombre enviado vía Resend el 5/30/2026. Resend ID: 43aa62f4-0496-4899-a5e1-8e00e98e19fd\n[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: info@dentalcumbres.mx. Contacto directo con Dr. Javier Martínez (director médico).",
       "created_at": "2026-05-30T21:17:03.781Z"
     },
     {
@@ -334,8 +334,8 @@
         "Tiempo de carga móvil lento (>3.8s)",
         "Imágenes de portada sin compresión que retrasan la visualización"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: info@mantramindbodyspa.com. Contacto directo con Adriana Garza (coordinadora del spa).",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Correo hiper-personalizado por nombre enviado vía Resend el 5/30/2026. Resend ID: 8baa671b-6d8f-46d1-9649-5ba64d20e373\n[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: info@mantramindbodyspa.com. Contacto directo con Adriana Garza (coordinadora del spa).",
       "created_at": "2026-05-30T21:17:03.781Z"
     },
     {
@@ -354,8 +354,8 @@
         "Tiempo de carga móvil superior a 3.8s",
         "Falta botón de agendamiento directo en portada"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: clientes@casaazulspa.mx. Contacto directo con Patricia Villarreal (fundadora de Casa Azul).",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Correo hiper-personalizado por nombre enviado vía Resend el 5/30/2026. Resend ID: 8ba31cd5-8960-45ed-af83-07bd8760f160\n[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: clientes@casaazulspa.mx. Contacto directo con Patricia Villarreal (fundadora de Casa Azul).",
       "created_at": "2026-05-30T21:17:03.781Z"
     },
     {
@@ -374,8 +374,8 @@
         "Carga móvil lenta (>3.8s)",
         "Menú responsivo colapsa en pantallas de celulares antiguos"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: hola@dentalia.com. Contacto directo con Dr. Carlos Ochoa (director dental).",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Correo hiper-personalizado por nombre enviado vía Resend el 5/30/2026. Resend ID: 5dcd080c-1242-4965-9652-0359d9abc117\n[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: hola@dentalia.com. Contacto directo con Dr. Carlos Ochoa (director dental).",
       "created_at": "2026-05-30T21:17:03.782Z"
     },
     {
@@ -394,8 +394,8 @@
         "Velocidad de carga en móviles superior a 3.8s",
         "Falta de optimización responsiva en el menú principal"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: contacto@dentalmedics.mx. Contacto directo con Dr. Alejandro Gutiérrez (director de Dentalmedics).",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Correo hiper-personalizado por nombre enviado vía Resend el 5/30/2026. Resend ID: df7f3d09-9ada-4ef1-9c55-bd809b0f3ac2\n[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: contacto@dentalmedics.mx. Contacto directo con Dr. Alejandro Gutiérrez (director de Dentalmedics).",
       "created_at": "2026-05-30T21:17:03.782Z"
     },
     {
@@ -414,8 +414,8 @@
         "Botón de reservas de WhatsApp se corta en pantallas móviles",
         "Carga móvil pesada en redes celulares"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Bogotá, CO. Correo verificado: recepcion@zenurbanospa.co. Contacto directo con Diana Gómez (directora de Zen Urbano).",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Correo hiper-personalizado por nombre enviado vía Resend el 5/30/2026. Resend ID: cc80b1b7-5d3c-4803-8709-c8e94e1d05a0\n[Auto Prospector] Calificado en Bogotá, CO. Correo verificado: recepcion@zenurbanospa.co. Contacto directo con Diana Gómez (directora de Zen Urbano).",
       "created_at": "2026-05-30T21:17:03.782Z"
     },
     {
@@ -434,8 +434,8 @@
         "Tiempo de carga superior a 3.9s",
         "Menú responsivo desalineado en navegadores móviles"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en CDMX, MX. Correo verificado: contacto@dentalia.com.mx. Contacto directo con Dr. Sergio Ortiz (coordinador médico).",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Correo hiper-personalizado por nombre enviado vía Resend el 5/30/2026. Resend ID: 570f30bb-3dca-4226-aa3e-da8c9e8d01d2\n[Auto Prospector] Calificado en CDMX, MX. Correo verificado: contacto@dentalia.com.mx. Contacto directo con Dr. Sergio Ortiz (coordinador médico).",
       "created_at": "2026-05-30T21:17:03.782Z"
     },
     {
@@ -454,8 +454,8 @@
         "Velocidad de carga lenta en teléfonos celulares",
         "Falta botón de agendamiento flotante para móviles"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: citas@kavaliadental.mx. Contacto directo con Dra. Karem Cavazos (fundadora y especialista).",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Correo hiper-personalizado por nombre enviado vía Resend el 5/30/2026. Resend ID: e91a56b9-5d7f-4498-bf3c-19218c8d81cc\n[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: citas@kavaliadental.mx. Contacto directo con Dra. Karem Cavazos (fundadora y especialista).",
       "created_at": "2026-05-30T21:17:03.782Z"
     },
     {
@@ -474,8 +474,8 @@
         "Sitio móvil con carga lenta de imágenes de tratamiento",
         "Ausencia de etiquetas semánticas y Viewport móvil"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: info@boutiquedental.mx. Contacto directo con Dr. Humberto Jiménez (director médico).",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Correo hiper-personalizado por nombre enviado vía Resend el 5/30/2026. Resend ID: ca8c6965-0955-4d34-8b0b-a03b8225f6b1\n[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: info@boutiquedental.mx. Contacto directo con Dr. Humberto Jiménez (director médico).",
       "created_at": "2026-05-30T21:17:03.783Z"
     },
     {
@@ -494,8 +494,8 @@
         "Imágenes de tratamientos pesadas sin compresión en celulares",
         "Rendimiento general en móviles mejorable"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Santiago, CL. Correo verificado: consultas@dramariajosesilva.cl. Contacto directo con Dra. María José Silva (fundadora y especialista).",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Correo hiper-personalizado por nombre enviado vía Resend el 5/30/2026. Resend ID: 55766ac3-d09a-40d5-a381-b0871a4fa234\n[Auto Prospector] Calificado en Santiago, CL. Correo verificado: consultas@dramariajosesilva.cl. Contacto directo con Dra. María José Silva (fundadora y especialista).",
       "created_at": "2026-05-30T21:17:03.783Z"
     }
   ],
@@ -715,9 +715,9 @@
       "subject": "página web para DentaCare Monterrey ⚡",
       "pitch_email": "Hola Dra. Laura Ortega,\n\nMe presento: soy David de Blinq (www.blinqoficial.com). Estaba revisando tu trabajo como directora de DentaCare en DentaCare Monterrey y vi que tienen una excelente reputación en Monterrey, MX.\n\nSin embargo, al entrar desde mi celular a www.dentacare.com.mx noté que tarda bastante en cargar y algunos botones se desalinean. Esto suele hacer que potenciales clientes se cansen de esperar y busquen otra opción.\n\nEn Blinq nos dedicamos a hacer páginas web que funcionan muy bien, bonitas y baratas. Te invito a revisar lo que ya hemos hecho en www.blinqoficial.com para que veas el potencial.\n\n¿Te parece bien si le echas un vistazo a lo que ya construimos para ver si hacemos algo parecido para tu negocio?\n\nSaludos,\nDavid\nBlinq",
       "pitch_dm": "¡Hola Dra. Laura Ortega! Notamos que su web móvil carga un poco lento. Hacemos diseño premium bueno, bonito y barato. ¿Le echas un vistazo a www.blinqoficial.com?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T21:19:48.384Z",
       "created_at": "2026-05-30T21:17:03.781Z"
     },
     {
@@ -726,9 +726,9 @@
       "subject": "página web para Clínica Dental Cumbres ⚡",
       "pitch_email": "Hola Dr. Javier Martínez,\n\nMe presento: soy David de Blinq (www.blinqoficial.com). Estaba revisando tu trabajo como director médico en Clínica Dental Cumbres y vi que tienen una excelente reputación en Monterrey, MX.\n\nSin embargo, al entrar desde mi celular a www.dentalcumbres.mx noté que tarda bastante en cargar y algunos botones se desalinean. Esto suele hacer que potenciales clientes se cansen de esperar y busquen otra opción.\n\nEn Blinq nos dedicamos a hacer páginas web que funcionan muy bien, bonitas y baratas. Te invito a revisar lo que ya hemos hecho en www.blinqoficial.com para que veas el potencial.\n\n¿Te parece bien si le echas un vistazo a lo que ya construimos para ver si hacemos algo parecido para tu negocio?\n\nSaludos,\nDavid\nBlinq",
       "pitch_dm": "¡Hola Dr. Javier Martínez! Notamos que su web móvil carga un poco lento. Hacemos diseño premium bueno, bonito y barato. ¿Le echas un vistazo a www.blinqoficial.com?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T21:19:49.715Z",
       "created_at": "2026-05-30T21:17:03.781Z"
     },
     {
@@ -737,9 +737,9 @@
       "subject": "página web para Mantra Mind & Body Spa ⚡",
       "pitch_email": "Hola Adriana Garza,\n\nMe presento: soy David de Blinq (www.blinqoficial.com). Estaba revisando tu trabajo como coordinadora del spa en Mantra Mind & Body Spa y vi que tienen una excelente reputación en Monterrey, MX.\n\nSin embargo, al entrar desde mi celular a www.mantramindbodyspa.com noté que tarda bastante en cargar y algunos botones se desalinean. Esto suele hacer que potenciales clientes se cansen de esperar y busquen otra opción.\n\nEn Blinq nos dedicamos a hacer páginas web que funcionan muy bien, bonitas y baratas. Te invito a revisar lo que ya hemos hecho en www.blinqoficial.com para que veas el potencial.\n\n¿Te parece bien si le echas un vistazo a lo que ya construimos para ver si hacemos algo parecido para tu negocio?\n\nSaludos,\nDavid\nBlinq",
       "pitch_dm": "¡Hola Adriana Garza! Notamos que su web móvil carga un poco lento. Hacemos diseño premium bueno, bonito y barato. ¿Le echas un vistazo a www.blinqoficial.com?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T21:19:51.049Z",
       "created_at": "2026-05-30T21:17:03.781Z"
     },
     {
@@ -748,9 +748,9 @@
       "subject": "página web para Casa Azul Spa Urbano ⚡",
       "pitch_email": "Hola Patricia Villarreal,\n\nMe presento: soy David de Blinq (www.blinqoficial.com). Estaba revisando tu trabajo como fundadora de Casa Azul en Casa Azul Spa Urbano y vi que tienen una excelente reputación en Monterrey, MX.\n\nSin embargo, al entrar desde mi celular a www.casaazulspa.mx noté que tarda bastante en cargar y algunos botones se desalinean. Esto suele hacer que potenciales clientes se cansen de esperar y busquen otra opción.\n\nEn Blinq nos dedicamos a hacer páginas web que funcionan muy bien, bonitas y baratas. Te invito a revisar lo que ya hemos hecho en www.blinqoficial.com para que veas el potencial.\n\n¿Te parece bien si le echas un vistazo a lo que ya construimos para ver si hacemos algo parecido para tu negocio?\n\nSaludos,\nDavid\nBlinq",
       "pitch_dm": "¡Hola Patricia Villarreal! Notamos que su web móvil carga un poco lento. Hacemos diseño premium bueno, bonito y barato. ¿Le echas un vistazo a www.blinqoficial.com?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T21:19:52.412Z",
       "created_at": "2026-05-30T21:17:03.781Z"
     },
     {
@@ -759,9 +759,9 @@
       "subject": "página web para Dentalia Monterrey ⚡",
       "pitch_email": "Hola Dr. Carlos Ochoa,\n\nMe presento: soy David de Blinq (www.blinqoficial.com). Estaba revisando tu trabajo como director dental en Dentalia Monterrey y vi que tienen una excelente reputación en Monterrey, MX.\n\nSin embargo, al entrar desde mi celular a www.dentalia.com noté que tarda bastante en cargar y algunos botones se desalinean. Esto suele hacer que potenciales clientes se cansen de esperar y busquen otra opción.\n\nEn Blinq nos dedicamos a hacer páginas web que funcionan muy bien, bonitas y baratas. Te invito a revisar lo que ya hemos hecho en www.blinqoficial.com para que veas el potencial.\n\n¿Te parece bien si le echas un vistazo a lo que ya construimos para ver si hacemos algo parecido para tu negocio?\n\nSaludos,\nDavid\nBlinq",
       "pitch_dm": "¡Hola Dr. Carlos Ochoa! Notamos que su web móvil carga un poco lento. Hacemos diseño premium bueno, bonito y barato. ¿Le echas un vistazo a www.blinqoficial.com?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T21:19:53.803Z",
       "created_at": "2026-05-30T21:17:03.782Z"
     },
     {
@@ -770,9 +770,9 @@
       "subject": "página web para Dentalmedics Monterrey ⚡",
       "pitch_email": "Hola Dr. Alejandro Gutiérrez,\n\nMe presento: soy David de Blinq (www.blinqoficial.com). Estaba revisando tu trabajo como director de Dentalmedics en Dentalmedics Monterrey y vi que tienen una excelente reputación en Monterrey, MX.\n\nSin embargo, al entrar desde mi celular a www.dentalmedics.mx noté que tarda bastante en cargar y algunos botones se desalinean. Esto suele hacer que potenciales clientes se cansen de esperar y busquen otra opción.\n\nEn Blinq nos dedicamos a hacer páginas web que funcionan muy bien, bonitas y baratas. Te invito a revisar lo que ya hemos hecho en www.blinqoficial.com para que veas el potencial.\n\n¿Te parece bien si le echas un vistazo a lo que ya construimos para ver si hacemos algo parecido para tu negocio?\n\nSaludos,\nDavid\nBlinq",
       "pitch_dm": "¡Hola Dr. Alejandro Gutiérrez! Notamos que su web móvil carga un poco lento. Hacemos diseño premium bueno, bonito y barato. ¿Le echas un vistazo a www.blinqoficial.com?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T21:19:55.157Z",
       "created_at": "2026-05-30T21:17:03.782Z"
     },
     {
@@ -781,9 +781,9 @@
       "subject": "página web para Spa Zen Urbano Bogotá ⚡",
       "pitch_email": "Hola Diana Gómez,\n\nMe presento: soy David de Blinq (www.blinqoficial.com). Estaba revisando tu trabajo como directora de Zen Urbano en Spa Zen Urbano Bogotá y vi que tienen una excelente reputación en Bogotá, CO.\n\nSin embargo, al entrar desde mi celular a www.zenurbanospa.co noté que tarda bastante en cargar y algunos botones se desalinean. Esto suele hacer que potenciales clientes se cansen de esperar y busquen otra opción.\n\nEn Blinq nos dedicamos a hacer páginas web que funcionan muy bien, bonitas y baratas. Te invito a revisar lo que ya hemos hecho en www.blinqoficial.com para que veas el potencial.\n\n¿Te parece bien si le echas un vistazo a lo que ya construimos para ver si hacemos algo parecido para tu negocio?\n\nSaludos,\nDavid\nBlinq",
       "pitch_dm": "¡Hola Diana Gómez! Notamos que su web móvil carga un poco lento. Hacemos diseño premium bueno, bonito y barato. ¿Le echas un vistazo a www.blinqoficial.com?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T21:19:56.568Z",
       "created_at": "2026-05-30T21:17:03.782Z"
     },
     {
@@ -792,9 +792,9 @@
       "subject": "página web para Clínica Dental Dentalia CDMX ⚡",
       "pitch_email": "Hola Dr. Sergio Ortiz,\n\nMe presento: soy David de Blinq (www.blinqoficial.com). Estaba revisando tu trabajo como coordinador médico en Clínica Dental Dentalia CDMX y vi que tienen una excelente reputación en CDMX, MX.\n\nSin embargo, al entrar desde mi celular a www.dentalia.com.mx noté que tarda bastante en cargar y algunos botones se desalinean. Esto suele hacer que potenciales clientes se cansen de esperar y busquen otra opción.\n\nEn Blinq nos dedicamos a hacer páginas web que funcionan muy bien, bonitas y baratas. Te invito a revisar lo que ya hemos hecho en www.blinqoficial.com para que veas el potencial.\n\n¿Te parece bien si le echas un vistazo a lo que ya construimos para ver si hacemos algo parecido para tu negocio?\n\nSaludos,\nDavid\nBlinq",
       "pitch_dm": "¡Hola Dr. Sergio Ortiz! Notamos que su web móvil carga un poco lento. Hacemos diseño premium bueno, bonito y barato. ¿Le echas un vistazo a www.blinqoficial.com?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T21:19:57.895Z",
       "created_at": "2026-05-30T21:17:03.782Z"
     },
     {
@@ -803,9 +803,9 @@
       "subject": "página web para Kavalia Dental Monterrey ⚡",
       "pitch_email": "Hola Dra. Karem Cavazos,\n\nMe presento: soy David de Blinq (www.blinqoficial.com). Estaba revisando tu trabajo como fundadora y especialista en Kavalia Dental Monterrey y vi que tienen una excelente reputación en Monterrey, MX.\n\nSin embargo, al entrar desde mi celular a www.kavaliadental.mx noté que tarda bastante en cargar y algunos botones se desalinean. Esto suele hacer que potenciales clientes se cansen de esperar y busquen otra opción.\n\nEn Blinq nos dedicamos a hacer páginas web que funcionan muy bien, bonitas y baratas. Te invito a revisar lo que ya hemos hecho en www.blinqoficial.com para que veas el potencial.\n\n¿Te parece bien si le echas un vistazo a lo que ya construimos para ver si hacemos algo parecido para tu negocio?\n\nSaludos,\nDavid\nBlinq",
       "pitch_dm": "¡Hola Dra. Karem Cavazos! Notamos que su web móvil carga un poco lento. Hacemos diseño premium bueno, bonito y barato. ¿Le echas un vistazo a www.blinqoficial.com?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T21:19:59.332Z",
       "created_at": "2026-05-30T21:17:03.782Z"
     },
     {
@@ -814,9 +814,9 @@
       "subject": "página web para Boutique Dental Monterrey ⚡",
       "pitch_email": "Hola Dr. Humberto Jiménez,\n\nMe presento: soy David de Blinq (www.blinqoficial.com). Estaba revisando tu trabajo como director médico en Boutique Dental Monterrey y vi que tienen una excelente reputación en Monterrey, MX.\n\nSin embargo, al entrar desde mi celular a www.boutiquedental.mx noté que tarda bastante en cargar y algunos botones se desalinean. Esto suele hacer que potenciales clientes se cansen de esperar y busquen otra opción.\n\nEn Blinq nos dedicamos a hacer páginas web que funcionan muy bien, bonitas y baratas. Te invito a revisar lo que ya hemos hecho en www.blinqoficial.com para que veas el potencial.\n\n¿Te parece bien si le echas un vistazo a lo que ya construimos para ver si hacemos algo parecido para tu negocio?\n\nSaludos,\nDavid\nBlinq",
       "pitch_dm": "¡Hola Dr. Humberto Jiménez! Notamos que su web móvil carga un poco lento. Hacemos diseño premium bueno, bonito y barato. ¿Le echas un vistazo a www.blinqoficial.com?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T21:20:00.765Z",
       "created_at": "2026-05-30T21:17:03.783Z"
     },
     {
@@ -825,9 +825,9 @@
       "subject": "página web para Dra. María José Silva Estética ⚡",
       "pitch_email": "Hola Dra. María José Silva,\n\nMe presento: soy David de Blinq (www.blinqoficial.com). Estaba revisando tu trabajo como fundadora y especialista en Dra. María José Silva Estética y vi que tienen una excelente reputación en Santiago, CL.\n\nSin embargo, al entrar desde mi celular a www.dramariajosesilva.cl noté que tarda bastante en cargar y algunos botones se desalinean. Esto suele hacer que potenciales clientes se cansen de esperar y busquen otra opción.\n\nEn Blinq nos dedicamos a hacer páginas web que funcionan muy bien, bonitas y baratas. Te invito a revisar lo que ya hemos hecho en www.blinqoficial.com para que veas el potencial.\n\n¿Te parece bien si le echas un vistazo a lo que ya construimos para ver si hacemos algo parecido para tu negocio?\n\nSaludos,\nDavid\nBlinq",
       "pitch_dm": "¡Hola Dra. María José Silva! Notamos que su web móvil carga un poco lento. Hacemos diseño premium bueno, bonito y barato. ¿Le echas un vistazo a www.blinqoficial.com?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T21:20:02.115Z",
       "created_at": "2026-05-30T21:17:03.783Z"
     }
   ],
