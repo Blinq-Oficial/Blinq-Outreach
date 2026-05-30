@@ -34,8 +34,9 @@
         "Falta etiqueta Meta Title (SEO básico)"
       ],
       "created_at": "2026-05-29T22:07:13.210Z",
-      "crm_status": "contacted",
-      "crm_notes": "[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Resend Inbound] Respuesta recibida: \"Hola Equipo Blinq,Me parece muy interesante la propuesta de rediseño móvil y la verificación de IA que mencionan. Sí, me gustaría ver ese boceto vis...\""
+      "crm_status": "replied",
+      "crm_notes": "[Afiliado] Referido por Serna Growth.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Webhook Test] Correo enviado vía Resend el 5/30/2026.\n[Resend Inbound] Respuesta recibida: \"Hola Equipo Blinq,Me parece muy interesante la propuesta de rediseño móvil y la verificación de IA que mencionan. Sí, me gustaría ver ese boceto vis...\"",
+      "referred_by": "aff-serna"
     },
     {
       "id": "lead-live-ht9fzt",
@@ -191,9 +192,10 @@
         "Tiempo de carga móvil lento (>4.1s)",
         "Diseño web anticuado no optimizado para la IA de Google SGE"
       ],
-      "crm_status": "contacted",
-      "crm_notes": "[Auto Outbox] Contactado con copywriting conversacional y precios regionales el 5/30/2026. Resend ID: 9c3980fa-7679-4f60-828b-1032eb945c65\n[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: info@dentalcumbres.mx",
-      "created_at": "2026-05-30T18:07:40.053Z"
+      "crm_status": "won",
+      "crm_notes": "[Afiliado] Referido por Victor Hernandez (Inteligencia Estratégica). Plan Protocol Ignition vendido por $120 USD (Comisión $70 USD para Victor, costo Blinq $50 USD).\n[Auto Outbox] Correo enviado vía Resend el 5/30/2026. Resend ID: 9c3980fa-7679-4f60-828b-1032eb945c65\n[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: info@dentalcumbres.mx",
+      "created_at": "2026-05-30T18:07:40.053Z",
+      "referred_by": "aff-victor"
     },
     {
       "id": "lead-live-lnl9k",
@@ -211,9 +213,10 @@
         "Sin etiqueta de título principal H1",
         "Botón de reserva en WhatsApp cortado en pantallas de móviles"
       ],
-      "crm_status": "contacted",
-      "crm_notes": "[Auto Outbox] Contactado con copywriting conversacional y precios regionales el 5/30/2026. Resend ID: 4efe8640-9091-4417-9892-19373930cd4c\n[Auto Prospector] Calificado en Bogotá, CO. Correo verificado: recepcion@zenurbanospa.co",
-      "created_at": "2026-05-30T18:07:40.054Z"
+      "crm_status": "won",
+      "crm_notes": "[Afiliado] Referido por Julián David. Plan Protocol Ignition en Bogotá vendido por 400.000 COP (Comisión 200.000 COP para Julián, costo Blinq 200.000 COP).\n[Auto Outbox] Correo enviado vía Resend el 5/30/2026. Resend ID: 4efe8640-9091-4417-9892-19373930cd4c\n[Auto Prospector] Calificado en Bogotá, CO. Correo verificado: recepcion@zenurbanospa.co",
+      "created_at": "2026-05-30T18:07:40.054Z",
+      "referred_by": "aff-julian"
     },
     {
       "id": "lead-live-zhkpf",
@@ -499,6 +502,53 @@
       "date": "2026-05-30T03:08:57.819Z",
       "id": "reply-cauqc",
       "created_at": "2026-05-30T03:08:58.112Z"
+    }
+  ],
+  "partners": [
+    {
+      "id": "aff-victor",
+      "name": "Victor Hernandez",
+      "label": "Inteligencia Estratégica Residencial",
+      "phone": "+52 81 2345 6789",
+      "whatsapp_url": "https://wa.me/528123456789",
+      "avatar_color": "280 80% 65%",
+      "created_at": "2026-05-30T10:00:00.000Z"
+    },
+    {
+      "id": "aff-julian",
+      "name": "Julián David",
+      "label": "Cliente",
+      "phone": "+57 310 123 4567",
+      "whatsapp_url": "https://wa.me/573101234567",
+      "avatar_color": "190 90% 50%",
+      "created_at": "2026-05-30T10:00:00.000Z"
+    },
+    {
+      "id": "aff-serna",
+      "name": "Serna",
+      "label": "Growth",
+      "phone": "+57 311 987 6543",
+      "whatsapp_url": "https://wa.me/573119876543",
+      "avatar_color": "320 85% 60%",
+      "created_at": "2026-05-30T10:00:00.000Z"
+    },
+    {
+      "id": "aff-sander",
+      "name": "Sander",
+      "label": "Solution",
+      "phone": "+57 312 456 7890",
+      "whatsapp_url": "https://wa.me/573124567890",
+      "avatar_color": "150 80% 55%",
+      "created_at": "2026-05-30T10:00:00.000Z"
+    },
+    {
+      "id": "aff-juan",
+      "name": "Juan Palacio",
+      "label": "Partner",
+      "phone": "+57 315 765 4321",
+      "whatsapp_url": "https://wa.me/573157654321",
+      "avatar_color": "40 95% 55%",
+      "created_at": "2026-05-30T10:00:00.000Z"
     }
   ]
 }

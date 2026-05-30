@@ -27,6 +27,17 @@ export interface LocalLead {
   crm_status?: 'lead' | 'contacted' | 'replied' | 'mockup_sent' | 'won' | 'lost';
   crm_notes?: string;
   created_at: string;
+  referred_by?: string | null;
+}
+
+export interface LocalPartner {
+  id: string;
+  name: string;
+  label: string;
+  phone: string;
+  whatsapp_url: string;
+  avatar_color: string;
+  created_at: string;
 }
 
 export interface LocalDraft {
@@ -57,6 +68,7 @@ interface LocalDatabase {
   leads: LocalLead[];
   drafts: LocalDraft[];
   replies?: LocalReply[];
+  partners?: LocalPartner[];
 }
 
 function initDb(): LocalDatabase {
@@ -65,6 +77,7 @@ function initDb(): LocalDatabase {
       const content = fs.readFileSync(DB_FILE, 'utf8');
       const parsed = JSON.parse(content) as LocalDatabase;
       parsed.replies = parsed.replies || [];
+      parsed.partners = parsed.partners || [];
       return parsed;
     } catch (e) {
       console.error('Error reading local fallback database, resetting:', e);
@@ -154,6 +167,7 @@ function loadDb(): LocalDatabase {
       db.leads = parsed.leads || [];
       db.drafts = parsed.drafts || [];
       db.replies = parsed.replies || [];
+      db.partners = parsed.partners || [];
     } catch (e) {
       console.error('Error reloading local fallback database:', e);
     }
@@ -229,7 +243,8 @@ export const localDb = {
         contact_channel: draft?.contact_channel || 'email',
         sent_at: draft?.sent_at || null,
         crm_status: lead.crm_status || 'lead',
-        crm_notes: lead.crm_notes || ''
+        crm_notes: lead.crm_notes || '',
+        referred_by: lead.referred_by || null
       };
     });
 
@@ -340,5 +355,28 @@ export const localDb = {
 
     saveDb();
     return newReply;
+  },
+
+  getPartners: () => {
+    loadDb();
+    return db.partners || [];
+  },
+
+  getPartnerById: (id: string) => {
+    loadDb();
+    return (db.partners || []).find(p => p.id === id);
+  },
+
+  createPartner: (partner: Omit<LocalPartner, 'id' | 'created_at'>) => {
+    loadDb();
+    db.partners = db.partners || [];
+    const newPartner: LocalPartner = {
+      ...partner,
+      id: 'aff-' + Math.random().toString(36).substring(7),
+      created_at: new Date().toISOString()
+    };
+    db.partners.push(newPartner);
+    saveDb();
+    return newPartner;
   }
 };
