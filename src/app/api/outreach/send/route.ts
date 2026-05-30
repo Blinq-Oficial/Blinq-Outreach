@@ -38,6 +38,10 @@ export async function POST(request: Request) {
           const { data, error: resendError } = await resend.emails.send({
             from: `Blinq <${senderEmail}>`,
             to: [lead.email],
+            replyTo: 'reply@enteayon.resend.app',
+            headers: {
+              'Reply-To': 'reply@enteayon.resend.app'
+            },
             subject: subject,
             text: emailBody,
             html: emailBody.replace(/\n/g, '<br />')
@@ -55,7 +59,7 @@ export async function POST(request: Request) {
           console.error('Resend service error locally:', e);
         }
       }
-
+      
       // Update draft locally
       localDb.updateDraft(leadId, {
         status: 'sent',
@@ -104,6 +108,10 @@ export async function POST(request: Request) {
         const { data, error: resendError } = await resend.emails.send({
           from: `Blinq <${senderEmail}>`,
           to: [lead.email],
+          replyTo: 'reply@enteayon.resend.app',
+          headers: {
+            'Reply-To': 'reply@enteayon.resend.app'
+          },
           subject: subject,
           text: emailBody,
           html: emailBody.replace(/\n/g, '<br />')
