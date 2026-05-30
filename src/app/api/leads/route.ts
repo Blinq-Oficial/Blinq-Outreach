@@ -15,6 +15,114 @@ export async function GET(request: Request) {
       return NextResponse.json(localLeads);
     }
 
+    // --- AUTO-SYNC FROM JSON TO SUPABASE IF ACTIVE ---
+    try {
+      console.log('[AUTO-SYNC] Supabase is active. Syncing local leads to Supabase...');
+      const fs = require('fs');
+      const path = require('path');
+      const DB_FILE = path.join(process.cwd(), 'database_fallback.json');
+      
+      if (fs.existsSync(DB_FILE)) {
+        const content = fs.readFileSync(DB_FILE, 'utf8');
+        const db = JSON.parse(content);
+        const localLeads = db.leads || [];
+        const localDrafts = db.drafts || [];
+        const localCampaigns = db.campaigns || [];
+        
+        for (const lead of localLeads) {
+          // Check if website already exists in Supabase
+          const { data: existingLead } = await supabase
+            .from('leads')
+            .select('id')
+            .eq('website', lead.website)
+            .maybeSingle();
+            
+          if (!existingLead) {
+            console.log(`[AUTO-SYNC] Syncing lead: ${lead.business_name} (${lead.website})`);
+            const localCamp = localCampaigns.find((c: any) => c.id === lead.campaign_id);
+            const niche = localCamp?.niche || 'Dentistas';
+            const city = localCamp?.city || 'Monterrey';
+            
+            // 1. Get or create matching campaign in Supabase with a valid UUID
+            let campaignUUID = '';
+            const { data: existingCamp } = await supabase
+              .from('campaigns')
+              .select('id')
+              .eq('niche', niche)
+              .eq('city', city)
+              .maybeSingle();
+              
+            if (existingCamp) {
+              campaignUUID = existingCamp.id;
+            } else {
+              const { data: newCamp, error: campErr } = await supabase
+                .from('campaigns')
+                .insert({ niche, city, status: 'active' })
+                .select()
+                .single();
+                
+              if (newCamp && !campErr) {
+                campaignUUID = newCamp.id;
+              } else {
+                console.error('[AUTO-SYNC] Failed to create campaign in Supabase:', campErr);
+                continue;
+              }
+            }
+            
+            // 2. Insert Lead into Supabase
+            const { data: newLead, error: leadError } = await supabase
+              .from('leads')
+              .insert({
+                campaign_id: campaignUUID,
+                business_name: lead.business_name,
+                phone: lead.phone,
+                email: lead.email,
+                website: lead.website,
+                has_website: lead.has_website,
+                instagram: lead.instagram,
+                whatsapp: lead.whatsapp,
+                address: lead.address,
+                google_rating: lead.google_rating,
+                website_issues: lead.website_issues
+              })
+              .select()
+              .single();
+              
+            if (leadError) {
+              console.error(`[AUTO-SYNC] Error inserting lead ${lead.business_name}:`, leadError);
+              continue;
+            }
+            
+            if (newLead) {
+              // 3. Find corresponding draft and insert it into outreach_drafts
+              const draft = localDrafts.find((d: any) => d.lead_id === lead.id);
+              if (draft) {
+                const { error: draftError } = await supabase
+                  .from('outreach_drafts')
+                  .insert({
+                    lead_id: newLead.id,
+                    subject: draft.subject,
+                    pitch_email: draft.pitch_email,
+                    pitch_dm: draft.pitch_dm,
+                    status: draft.status || 'pending_review',
+                    contact_channel: draft.contact_channel || 'email',
+                    sent_at: draft.sent_at
+                  });
+                  
+                if (draftError) {
+                  console.error(`[AUTO-SYNC] Error inserting draft for ${lead.business_name}:`, draftError);
+                } else {
+                  console.log(`[AUTO-SYNC] Successfully synced lead and draft for: ${lead.business_name}`);
+                }
+              }
+            }
+          }
+        }
+      }
+    } catch (syncErr) {
+      console.error('[AUTO-SYNC] Exception during auto-sync:', syncErr);
+    }
+
     let query = supabase.from('v_leads_outreach').select('*');
 
     if (campaignId) {
