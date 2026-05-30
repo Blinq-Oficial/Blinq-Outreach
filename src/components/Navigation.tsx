@@ -83,8 +83,8 @@ export default function Navigation() {
             BQ
           </div>
           <div>
-            <h5 style={{ fontSize: '0.8rem', fontWeight: 600, letterSpacing: '-0.01em' }}>Blinq Oficial</h5>
-            <p style={{ fontSize: '0.65rem', color: 'hsl(var(--text-muted))' }}>Plan Gratuito</p>
+            <h5 style={{ fontSize: '0.8rem', fontWeight: 600, letterSpacing: '-0.01em', color: '#ffffff' }}>Blinq Enterprise</h5>
+            <p style={{ fontSize: '0.65rem', color: '#a855f7', fontWeight: 600 }}>AI Protocol Active ⚡</p>
           </div>
         </div>
       </div>
