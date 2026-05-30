@@ -36,7 +36,7 @@ export async function POST(request: Request) {
       if (resend) {
         try {
           const { data, error: resendError } = await resend.emails.send({
-            from: `Blinq Oficial <${senderEmail}>`,
+            from: `Blinq <${senderEmail}>`,
             to: [lead.email],
             subject: subject,
             text: emailBody,
@@ -102,7 +102,7 @@ export async function POST(request: Request) {
     if (resend) {
       try {
         const { data, error: resendError } = await resend.emails.send({
-          from: `Blinq Oficial <${senderEmail}>`,
+          from: `Blinq <${senderEmail}>`,
           to: [lead.email],
           subject: subject,
           text: emailBody,

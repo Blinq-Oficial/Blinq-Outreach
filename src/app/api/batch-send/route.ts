@@ -4,7 +4,7 @@ import { localDb } from '@/lib/dbFallback';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY || 're_6FDNPXWp_BTCte5UrKDo2Uc6x4T3eAxr1';
 const SENDER_EMAIL = process.env.SENDER_EMAIL || 'contacto@blinqoficial.com';
-const SENDER_NAME = 'Blinq Oficial';
+const SENDER_NAME = 'Blinq';
 const MAX_SENDS_PER_BATCH = 100;
 const DELAY_BETWEEN_SENDS_MS = 1100; // 1.1s to stay safely under Resend rate limits
 
