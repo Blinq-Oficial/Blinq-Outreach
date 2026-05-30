@@ -37,7 +37,21 @@ export async function GET(request: Request) {
             .eq('website', lead.website)
             .maybeSingle();
             
-          if (!existingLead) {
+          if (existingLead) {
+            // Update the outreach draft in Supabase if the local copy changed and it is still pending_review
+            const draft = localDrafts.find((d: any) => d.lead_id === lead.id);
+            if (draft) {
+              await supabase
+                .from('outreach_drafts')
+                .update({
+                  subject: draft.subject,
+                  pitch_email: draft.pitch_email,
+                  pitch_dm: draft.pitch_dm
+                })
+                .eq('lead_id', existingLead.id)
+                .eq('status', 'pending_review');
+            }
+          } else {
             console.log(`[AUTO-SYNC] Syncing lead: ${lead.business_name} (${lead.website})`);
             const localCamp = localCampaigns.find((c: any) => c.id === lead.campaign_id);
             const niche = localCamp?.niche || 'Dentistas';

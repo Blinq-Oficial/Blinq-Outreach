@@ -242,29 +242,42 @@ async function generateOutreachEmail(lead, niche, city) {
     generationConfig: { responseMimeType: 'application/json' }
   });
 
+  // Localized pricing logic based on lead's city
+  const lowerCity = city.toLowerCase();
+  const isColombia = lowerCity.includes('bogotá') || lowerCity.includes('bogota') || lowerCity.includes('medellín') || lowerCity.includes('medellin') || lowerCity.includes('co');
+  
+  let pricingString = 'Por solo $50 USD te entregamos una web móvil nueva, ultrarrápida y con código puro en solo 48 horas.';
+  if (isColombia) {
+    pricingString = 'Por solo $50 USD (o 200.000 COP) te entregamos una web móvil nueva, ultrarrápida y con código puro en solo 48 horas.';
+  }
+
   const prompt = `
 Eres un copywriter estrella para Blinq (blinqoficial.com), una agencia premium de diseño y desarrollo web profesional de alta conversión.
 Nuestra oferta irresistible es:
-- Plan PROTOCOL IGNITION ($50 USD / 200.000 COP, entrega en 48 horas, cero anticipo, velocidad de carga luz, código puro cero WordPress).
-- Ofrecemos una propuesta / boceto visual interactivo gratis de su negocio y una verificación de optimización para Inteligencia Artificial (SGE de Google / ChatGPT) completamente gratis y sin compromiso.
+- Plan PROTOCOL IGNITION (${pricingString} Con cero anticipo: pagas solo si estás 100% satisfecho con el resultado).
+- Ofrecemos un boceto visual interactivo de diseño web móvil personalizado de su negocio y una verificación de optimización para Inteligencia Artificial (SGE de Google / ChatGPT) completamente gratis y sin compromiso.
 
-Escribe un gancho de contacto sumamente directo, amigable y sumamente honesto en español de tú a tú para:
+Escribe un gancho de contacto sumamente directo, amigable y muy honesto en español de tú a tú para:
 - Nombre del Negocio: ${lead.businessName}
 - Sitio Web: ${lead.website}
 - Nicho: ${niche}
 - Ciudad: ${city}
 - Problemas técnicos detectados: ${lead.issues.join(', ')}
 
-Instrucciones exactas de Alex Hormozi:
-1. NUNCA uses saludos corporativos aburridos ni frases como "espero que estés bien". Empieza directo al grano de forma ultra honesta y humana.
-2. Explica que auditamos su web móvil y notamos los problemas técnicos detectados. Esto da credibilidad.
-3. Ofrece hacerles un boceto visual interactivo de diseño web móvil personalizado y optimizado totalmente gratis y sin compromiso para que vean el potencial de mejora.
-4. Presenta de forma simple el plan Protocol Ignition de $50 USD (o 200.000 COP) sin anticipo: "Pagas el total del plan únicamente si estás 100% satisfecho con el resultado".
-5. CTA: Haz una pregunta conversacional de bajísimo esfuerzo para iniciar la conversación.
+Instrucciones exactas de Redacción de David:
+1. DEBES comenzar el correo presentándote de forma cercana e informal:
+   "Hola, me presento: soy David en el equipo de Blinq. Estábamos buscando [Nicho] y nos encontramos tu página web..."
+2. NUNCA uses saludos robóticos o prefabricados como "Hola, Directo al grano: Estábamos auditando..." o frases similares.
+3. Menciona el sitio web de forma orgánica en la oración sin ponerlo entre paréntesis, por ejemplo: "...nos encontramos con tu página web ${lead.website} y notamos que..."
+4. Menciona que la página web no está optimizada para la nueva era de Inteligencia Artificial (SGE de Google / ChatGPT) y para celulares, lo que te hace perder visibilidad y visitas de potenciales pacientes/clientes.
+5. Ofrece hacerles un boceto visual interactivo personalizado de su negocio en Figma totalmente gratis y sin compromiso para que vean el potencial de mejora.
+6. Presenta con total transparencia el Plan Protocol Ignition con la siguiente oferta regional: "${pricingString} Lo mejor es que no pedimos anticipo: solo pagas si te encanta el resultado final".
+7. Mantén el mensaje extremadamente corto (máximo 150 palabras), directo, educado y conversacional. No uses enlaces ni URLs adicionales entre paréntesis.
+8. CTA: Haz una pregunta informal de bajísimo esfuerzo para abrir la conversación, ej: "¿Te gustaría ver la propuesta?" o "¿Te puedo mandar el boceto visual?".
 
 Responde únicamente con un objeto JSON válido con la siguiente estructura:
 {
-  "subject": "Asunto de correo llamativo pero no spammer (ej. 'idea visual gratis para [Nombre]', 'boceto web móvil para [Nombre]')",
+  "subject": "Asunto de correo intrigante y conversacional (ej. 'idea visual gratis para Dra. María José', 'boceto web móvil para Clínica Dental Cumbres')",
   "body": "Cuerpo del correo en formato texto conversacional con saltos de línea (\\n)."
 }
 `;
@@ -275,9 +288,12 @@ Responde únicamente con un objeto JSON válido con la siguiente estructura:
     return JSON.parse(text);
   } catch (err) {
     console.error('Gemini pitch generation failed. Using default template.');
+    
+    const introText = `Hola, me presento: soy David en el equipo de Blinq. Estábamos buscando ${niche} y nos encontramos tu página web ${lead.website}. Notamos que no está optimizada para dispositivos móviles ni para la era de la Inteligencia Artificial (SGE / ChatGPT), lo que te puede estar restando visibilidad y clientes en ${city}.`;
+    
     return {
       subject: `Boceto móvil gratis para ${lead.businessName} ⚡`,
-      body: `Hola,\n\nEstaba revisando la presencia móvil de ${lead.businessName} y noté excelentes valoraciones de tus clientes, pero al ingresar desde dispositivos móviles a su portal detectamos un par de detalles importantes de rendimiento:\n- ${lead.issues.join('\n- ')}\n\nHemos diseñado un boceto visual interactivo en Figma totalmente personalizado para tu marca, sin costo ni compromiso alguno. ¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.\n\nQuedo muy atento a tu respuesta,\nEquipo Blinq`
+      body: `${introText}\n\nHemos diseñado un boceto visual interactivo totalmente personalizado para tu marca, sin costo ni compromiso alguno. ${pricingString} No pedimos ningún tipo de anticipo, pagas únicamente cuando estés 100% satisfecho con el resultado.\n\n¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.\n\nSaludos,\nDavid`
     };
   }
 }

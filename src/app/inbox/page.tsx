@@ -271,6 +271,23 @@ export default function Inbox() {
     l.niche.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const sortedFilteredLeads = [...filteredLeads].sort((a, b) => {
+    const statusOrder: Record<string, number> = {
+      'pending_review': 0,
+      'approved': 1,
+      'sent': 2,
+      'rejected': 3
+    };
+    const orderA = statusOrder[a.draft_status] ?? 4;
+    const orderB = statusOrder[b.draft_status] ?? 4;
+    
+    if (orderA !== orderB) {
+      return orderA - orderB;
+    }
+    
+    return a.business_name.localeCompare(b.business_name);
+  });
+
   return (
     <div>
       <header style={{ marginBottom: '2rem' }}>
@@ -303,7 +320,7 @@ export default function Inbox() {
 
             {/* List */}
             <div className="lead-list">
-              {filteredLeads.map((lead) => (
+              {sortedFilteredLeads.map((lead) => (
                 <div 
                   key={lead.lead_id} 
                   className={`lead-item ${selectedLead?.lead_id === lead.lead_id ? 'active' : ''}`}
