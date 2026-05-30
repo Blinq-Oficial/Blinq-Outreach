@@ -9,9 +9,9 @@
 
 const RESEND_API_KEY = 're_6FDNPXWp_BTCte5UrKDo2Uc6x4T3eAxr1';
 const SENDER_EMAIL = 'contacto@blinqoficial.com';
-const SENDER_NAME = 'Blinq Oficial';
+const SENDER_NAME = 'Blinq';
 const RECIPIENT_EMAIL = 'david.aguirre.pulgarin@gmail.com';
-const RECIPIENT_NAME = 'David Aguirre';
+const RECIPIENT_NAME = 'David';
 
 const fs = require('fs');
 const path = require('path');
