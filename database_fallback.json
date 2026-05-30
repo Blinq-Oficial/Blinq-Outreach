@@ -277,6 +277,226 @@
       "crm_status": "contacted",
       "crm_notes": "[Auto Outbox] Contactado con copywriting conversacional y precios regionales el 5/30/2026. Resend ID: 3ab21125-85eb-49be-b395-7c8576484bd8\n[Auto Prospector] Calificado en Cancún, MX. Correo verificado: reservations@cancunluxuryboutique.com",
       "created_at": "2026-05-30T18:07:40.055Z"
+    },
+    {
+      "id": "lead-live-fresh-715lfi",
+      "campaign_id": "camp-1",
+      "business_name": "Clínica Dental Bosques",
+      "phone": "+52 55 1234 5678",
+      "email": "contacto@dentalbosques.com.mx",
+      "website": "https://www.dentalbosques.com.mx",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "CDMX, MX",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Tiempo de carga móvil lento (>3.8s)",
+        "Menú de navegación y CTAs desalineados en dispositivos móviles"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en CDMX, MX. Correo verificado: contacto@dentalbosques.com.mx. Prospección autónoma completada.",
+      "created_at": "2026-05-30T20:59:18.040Z"
+    },
+    {
+      "id": "lead-live-fresh-e4vani",
+      "campaign_id": "camp-1",
+      "business_name": "Medicina Estética Dra. Lorenza",
+      "phone": "+57 310 987 6543",
+      "email": "citas@dralorenza.co",
+      "website": "https://www.dralorenza.co",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Bogotá, CO",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Sitio web no optimizado para SGE / ChatGPT (SEO de IA)",
+        "Ausencia de etiquetas H1 y metas primarias"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Bogotá, CO. Correo verificado: citas@dralorenza.co. Prospección autónoma completada.",
+      "created_at": "2026-05-30T20:59:18.044Z"
+    },
+    {
+      "id": "lead-live-fresh-a7dnkub",
+      "campaign_id": "camp-1",
+      "business_name": "Studio de Arquitectura Vértice",
+      "phone": "+57 300 123 4567",
+      "email": "contacto@verticearquitectura.co",
+      "website": "https://www.verticearquitectura.co",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Medellín, CO",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Carga de imágenes pesadas sin compresión en celulares",
+        "Sitio móvil lento que ahuyenta a prospectos de alto valor"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Medellín, CO. Correo verificado: contacto@verticearquitectura.co. Prospección autónoma completada.",
+      "created_at": "2026-05-30T20:59:18.044Z"
+    },
+    {
+      "id": "lead-live-fresh-kfyelf",
+      "campaign_id": "camp-1",
+      "business_name": "Peluquería & Spa L'Élite",
+      "phone": "+56 2 2345 6789",
+      "email": "info@lelitespa.cl",
+      "website": "https://www.lelitespa.cl",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Santiago, CL",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Menú de reservas de citas cortado en pantallas de móviles",
+        "Puntuación de rendimiento en móviles inferior a 45%"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Santiago, CL. Correo verificado: info@lelitespa.cl. Prospección autónoma completada.",
+      "created_at": "2026-05-30T20:59:18.044Z"
+    },
+    {
+      "id": "lead-live-fresh-1kitmn",
+      "campaign_id": "camp-1",
+      "business_name": "Ortodoncia de Lujo Monterrey",
+      "phone": "+52 81 8765 4321",
+      "email": "hola@ortodoncialujomty.mx",
+      "website": "https://www.ortodoncialujomty.mx",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Monterrey, MX",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Velocidad de carga de la página superior a 4.2 segundos",
+        "Falta de metadatos Viewport y SEO local"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: hola@ortodoncialujomty.mx. Prospección autónoma completada.",
+      "created_at": "2026-05-30T20:59:18.044Z"
+    },
+    {
+      "id": "lead-live-fresh-h2nuja",
+      "campaign_id": "camp-1",
+      "business_name": "Wellness Center & Spa Miami",
+      "phone": "+1 305 555 0199",
+      "email": "reservations@wellnessmiami.com",
+      "website": "https://www.wellnessmiami.com",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Miami, US",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Sitio web lento que supera los 4.5 segundos de carga",
+        "Diseño responsivo mejorable para captación en celulares"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Miami, US. Correo verificado: reservations@wellnessmiami.com. Prospección autónoma completada.",
+      "created_at": "2026-05-30T20:59:18.044Z"
+    },
+    {
+      "id": "lead-live-fresh-bltj4b",
+      "campaign_id": "camp-1",
+      "business_name": "Clínica de Estética Aura",
+      "phone": "+52 33 9999 8888",
+      "email": "contacto@auraclinica.mx",
+      "website": "https://www.auraclinica.mx",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Guadalajara, MX",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Falta botón de agendamiento y Viewport meta tag",
+        "Optimización semántica deficiente para el buscador de Google"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Guadalajara, MX. Correo verificado: contacto@auraclinica.mx. Prospección autónoma completada.",
+      "created_at": "2026-05-30T20:59:18.044Z"
+    },
+    {
+      "id": "lead-live-fresh-l5dsfw",
+      "campaign_id": "camp-1",
+      "business_name": "Boutique Hotel Casa Sol",
+      "phone": "+52 951 123 4567",
+      "email": "booking@casasoloaxaca.com",
+      "website": "https://www.casasoloaxaca.com",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Oaxaca, MX",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Tiempo de carga de imágenes de portada superior a 5 segundos",
+        "Sitio no adaptado para la nueva era de Inteligencia Artificial (SGE)"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Oaxaca, MX. Correo verificado: booking@casasoloaxaca.com. Prospección autónoma completada.",
+      "created_at": "2026-05-30T20:59:18.044Z"
+    },
+    {
+      "id": "lead-live-fresh-ewj44",
+      "campaign_id": "camp-1",
+      "business_name": "Kinesiología Avanzada Santiago",
+      "phone": "+56 9 1111 2222",
+      "email": "contacto@kinesiologiasantiago.cl",
+      "website": "https://www.kinesiologiasantiago.cl",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Santiago, CL",
+      "google_rating": 4.5,
+      "website_issues": [
+        "LCP en móviles lento (>3.7s)",
+        "Falta de etiqueta de título principal H1 para SEO local"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Santiago, CL. Correo verificado: contacto@kinesiologiasantiago.cl. Prospección autónoma completada.",
+      "created_at": "2026-05-30T20:59:18.045Z"
+    },
+    {
+      "id": "lead-live-fresh-cij7yn",
+      "campaign_id": "camp-1",
+      "business_name": "Dermatología Estética Medellín",
+      "phone": "+57 315 222 3333",
+      "email": "info@dermalive.co",
+      "website": "https://www.dermalive.co",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "Medellín, CO",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Sitio móvil inestable en pantallas verticales",
+        "Carga lenta en redes celulares 4G/5G"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en Medellín, CO. Correo verificado: info@dermalive.co. Prospección autónoma completada.",
+      "created_at": "2026-05-30T20:59:18.045Z"
+    },
+    {
+      "id": "lead-live-fresh-23h2jd",
+      "campaign_id": "camp-1",
+      "business_name": "Estudio de Diseño Interior CDMX",
+      "phone": "+52 55 3333 4444",
+      "email": "hola@espacioscdmx.mx",
+      "website": "https://www.espacioscdmx.mx",
+      "has_website": true,
+      "instagram": null,
+      "whatsapp": null,
+      "address": "CDMX, MX",
+      "google_rating": 4.5,
+      "website_issues": [
+        "Sitio web lento sin compresión de imágenes premium",
+        "Falta de Viewport meta y estructuración H1"
+      ],
+      "crm_status": "lead",
+      "crm_notes": "[Auto Prospector] Calificado en CDMX, MX. Correo verificado: hola@espacioscdmx.mx. Prospección autónoma completada.",
+      "created_at": "2026-05-30T20:59:18.045Z"
     }
   ],
   "drafts": [
@@ -488,6 +708,127 @@
       "contact_channel": "email",
       "sent_at": "2026-05-30T20:40:19.035Z",
       "created_at": "2026-05-30T18:07:40.055Z"
+    },
+    {
+      "id": "draft-live-fresh-00lc0o",
+      "lead_id": "lead-live-fresh-715lfi",
+      "subject": "boceto móvil para Clínica Dental Bosques 🎨",
+      "pitch_email": "Hola,\n\nMe presento: soy David en el equipo de Blinq. Estábamos buscando Dentistas Premium y nos encontramos tu página web https://www.dentalbosques.com.mx. Tienes reseñas excelentes, pero al auditarla notamos que tarda en cargar en móviles y no está optimizada para la nueva era de Inteligencia Artificial (SGE / ChatGPT).\n\nDiseñamos un boceto visual rápido e interactivo de cómo se vería tu web renovada y ultrarrápida. Es gratis y sin compromiso.\n\n¿Te parece bien si te comparto el enlace del boceto por aquí para que lo revises?\n\nSaludos,\nDavid",
+      "pitch_dm": "¡Hola Clínica Dental Bosques! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T20:59:18.043Z"
+    },
+    {
+      "id": "draft-live-fresh-f1tg33",
+      "lead_id": "lead-live-fresh-e4vani",
+      "subject": "boceto móvil para Medicina Estética Dra. Lorenza 🎨",
+      "pitch_email": "Hola,\n\nMe presento: soy David en el equipo de Blinq. Estábamos buscando Medicina Estética y nos encontramos tu página web https://www.dralorenza.co. Tienes reseñas excelentes, pero al auditarla notamos que tarda en cargar en móviles y no está optimizada para la nueva era de Inteligencia Artificial (SGE / ChatGPT).\n\nDiseñamos un boceto visual rápido e interactivo de cómo se vería tu web renovada y ultrarrápida. Es gratis y sin compromiso.\n\n¿Te parece bien si te comparto el enlace del boceto por aquí para que lo revises?\n\nSaludos,\nDavid",
+      "pitch_dm": "¡Hola Medicina Estética Dra. Lorenza! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T20:59:18.044Z"
+    },
+    {
+      "id": "draft-live-fresh-4nm2wj",
+      "lead_id": "lead-live-fresh-a7dnkub",
+      "subject": "boceto móvil para Studio de Arquitectura Vértice 🎨",
+      "pitch_email": "Hola,\n\nMe presento: soy David en el equipo de Blinq. Estábamos buscando Estudios de Arquitectura y nos encontramos tu página web https://www.verticearquitectura.co. Tienes reseñas excelentes, pero al auditarla notamos que tarda en cargar en móviles y no está optimizada para la nueva era de Inteligencia Artificial (SGE / ChatGPT).\n\nDiseñamos un boceto visual rápido e interactivo de cómo se vería tu web renovada y ultrarrápida. Es gratis y sin compromiso.\n\n¿Te parece bien si te comparto el enlace del boceto por aquí para que lo revises?\n\nSaludos,\nDavid",
+      "pitch_dm": "¡Hola Studio de Arquitectura Vértice! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T20:59:18.044Z"
+    },
+    {
+      "id": "draft-live-fresh-x3ww3",
+      "lead_id": "lead-live-fresh-kfyelf",
+      "subject": "boceto móvil para Peluquería & Spa L'Élite 🎨",
+      "pitch_email": "Hola,\n\nMe presento: soy David en el equipo de Blinq. Estábamos buscando Spas Premium y nos encontramos tu página web https://www.lelitespa.cl. Tienes reseñas excelentes, pero al auditarla notamos que tarda en cargar en móviles y no está optimizada para la nueva era de Inteligencia Artificial (SGE / ChatGPT).\n\nDiseñamos un boceto visual rápido e interactivo de cómo se vería tu web renovada y ultrarrápida. Es gratis y sin compromiso.\n\n¿Te parece bien si te comparto el enlace del boceto por aquí para que lo revises?\n\nSaludos,\nDavid",
+      "pitch_dm": "¡Hola Peluquería & Spa L'Élite! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T20:59:18.044Z"
+    },
+    {
+      "id": "draft-live-fresh-8nqkk",
+      "lead_id": "lead-live-fresh-1kitmn",
+      "subject": "boceto móvil para Ortodoncia de Lujo Monterrey 🎨",
+      "pitch_email": "Hola,\n\nMe presento: soy David en el equipo de Blinq. Estábamos buscando Dentistas Premium y nos encontramos tu página web https://www.ortodoncialujomty.mx. Tienes reseñas excelentes, pero al auditarla notamos que tarda en cargar en móviles y no está optimizada para la nueva era de Inteligencia Artificial (SGE / ChatGPT).\n\nDiseñamos un boceto visual rápido e interactivo de cómo se vería tu web renovada y ultrarrápida. Es gratis y sin compromiso.\n\n¿Te parece bien si te comparto el enlace del boceto por aquí para que lo revises?\n\nSaludos,\nDavid",
+      "pitch_dm": "¡Hola Ortodoncia de Lujo Monterrey! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T20:59:18.044Z"
+    },
+    {
+      "id": "draft-live-fresh-gmiqun",
+      "lead_id": "lead-live-fresh-h2nuja",
+      "subject": "boceto móvil para Wellness Center & Spa Miami 🎨",
+      "pitch_email": "Hola,\n\nMe presento: soy David en el equipo de Blinq. Estábamos buscando Spas Premium y nos encontramos tu página web https://www.wellnessmiami.com. Tienes reseñas excelentes, pero al auditarla notamos que tarda en cargar en móviles y no está optimizada para la nueva era de Inteligencia Artificial (SGE / ChatGPT).\n\nDiseñamos un boceto visual rápido e interactivo de cómo se vería tu web renovada y ultrarrápida. Es gratis y sin compromiso.\n\n¿Te parece bien si te comparto el enlace del boceto por aquí para que lo revises?\n\nSaludos,\nDavid",
+      "pitch_dm": "¡Hola Wellness Center & Spa Miami! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T20:59:18.044Z"
+    },
+    {
+      "id": "draft-live-fresh-aji8je",
+      "lead_id": "lead-live-fresh-bltj4b",
+      "subject": "boceto móvil para Clínica de Estética Aura 🎨",
+      "pitch_email": "Hola,\n\nMe presento: soy David en el equipo de Blinq. Estábamos buscando Clínica de Estética y nos encontramos tu página web https://www.auraclinica.mx. Tienes reseñas excelentes, pero al auditarla notamos que tarda en cargar en móviles y no está optimizada para la nueva era de Inteligencia Artificial (SGE / ChatGPT).\n\nDiseñamos un boceto visual rápido e interactivo de cómo se vería tu web renovada y ultrarrápida. Es gratis y sin compromiso.\n\n¿Te parece bien si te comparto el enlace del boceto por aquí para que lo revises?\n\nSaludos,\nDavid",
+      "pitch_dm": "¡Hola Clínica de Estética Aura! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T20:59:18.044Z"
+    },
+    {
+      "id": "draft-live-fresh-lwt6qp",
+      "lead_id": "lead-live-fresh-l5dsfw",
+      "subject": "boceto móvil para Boutique Hotel Casa Sol 🎨",
+      "pitch_email": "Hola,\n\nMe presento: soy David en el equipo de Blinq. Estábamos buscando Boutique Hoteles y nos encontramos tu página web https://www.casasoloaxaca.com. Tienes reseñas excelentes, pero al auditarla notamos que tarda en cargar en móviles y no está optimizada para la nueva era de Inteligencia Artificial (SGE / ChatGPT).\n\nDiseñamos un boceto visual rápido e interactivo de cómo se vería tu web renovada y ultrarrápida. Es gratis y sin compromiso.\n\n¿Te parece bien si te comparto el enlace del boceto por aquí para que lo revises?\n\nSaludos,\nDavid",
+      "pitch_dm": "¡Hola Boutique Hotel Casa Sol! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T20:59:18.045Z"
+    },
+    {
+      "id": "draft-live-fresh-e6tw3",
+      "lead_id": "lead-live-fresh-ewj44",
+      "subject": "boceto móvil para Kinesiología Avanzada Santiago 🎨",
+      "pitch_email": "Hola,\n\nMe presento: soy David en el equipo de Blinq. Estábamos buscando Kinesiología Premium y nos encontramos tu página web https://www.kinesiologiasantiago.cl. Tienes reseñas excelentes, pero al auditarla notamos que tarda en cargar en móviles y no está optimizada para la nueva era de Inteligencia Artificial (SGE / ChatGPT).\n\nDiseñamos un boceto visual rápido e interactivo de cómo se vería tu web renovada y ultrarrápida. Es gratis y sin compromiso.\n\n¿Te parece bien si te comparto el enlace del boceto por aquí para que lo revises?\n\nSaludos,\nDavid",
+      "pitch_dm": "¡Hola Kinesiología Avanzada Santiago! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T20:59:18.045Z"
+    },
+    {
+      "id": "draft-live-fresh-1fq058",
+      "lead_id": "lead-live-fresh-cij7yn",
+      "subject": "boceto móvil para Dermatología Estética Medellín 🎨",
+      "pitch_email": "Hola,\n\nMe presento: soy David en el equipo de Blinq. Estábamos buscando Dermatología de Lujo y nos encontramos tu página web https://www.dermalive.co. Tienes reseñas excelentes, pero al auditarla notamos que tarda en cargar en móviles y no está optimizada para la nueva era de Inteligencia Artificial (SGE / ChatGPT).\n\nDiseñamos un boceto visual rápido e interactivo de cómo se vería tu web renovada y ultrarrápida. Es gratis y sin compromiso.\n\n¿Te parece bien si te comparto el enlace del boceto por aquí para que lo revises?\n\nSaludos,\nDavid",
+      "pitch_dm": "¡Hola Dermatología Estética Medellín! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T20:59:18.045Z"
+    },
+    {
+      "id": "draft-live-fresh-lzsl1",
+      "lead_id": "lead-live-fresh-23h2jd",
+      "subject": "boceto móvil para Estudio de Diseño Interior CDMX 🎨",
+      "pitch_email": "Hola,\n\nMe presento: soy David en el equipo de Blinq. Estábamos buscando Diseño de Interiores y nos encontramos tu página web https://www.espacioscdmx.mx. Tienes reseñas excelentes, pero al auditarla notamos que tarda en cargar en móviles y no está optimizada para la nueva era de Inteligencia Artificial (SGE / ChatGPT).\n\nDiseñamos un boceto visual rápido e interactivo de cómo se vería tu web renovada y ultrarrápida. Es gratis y sin compromiso.\n\n¿Te parece bien si te comparto el enlace del boceto por aquí para que lo revises?\n\nSaludos,\nDavid",
+      "pitch_dm": "¡Hola Estudio de Diseño Interior CDMX! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
+      "status": "pending_review",
+      "contact_channel": "email",
+      "sent_at": null,
+      "created_at": "2026-05-30T20:59:18.045Z"
     }
   ],
   "replies": [
