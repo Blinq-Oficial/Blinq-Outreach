@@ -191,8 +191,8 @@
         "Tiempo de carga móvil lento (>4.1s)",
         "Diseño web anticuado no optimizado para la IA de Google SGE"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: info@dentalcumbres.mx",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Contactado con copywriting conversacional y precios regionales el 5/30/2026. Resend ID: 9c3980fa-7679-4f60-828b-1032eb945c65\n[Auto Prospector] Calificado en Monterrey, MX. Correo verificado: info@dentalcumbres.mx",
       "created_at": "2026-05-30T18:07:40.053Z"
     },
     {
@@ -211,8 +211,8 @@
         "Sin etiqueta de título principal H1",
         "Botón de reserva en WhatsApp cortado en pantallas de móviles"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Bogotá, CO. Correo verificado: recepcion@zenurbanospa.co",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Contactado con copywriting conversacional y precios regionales el 5/30/2026. Resend ID: 4efe8640-9091-4417-9892-19373930cd4c\n[Auto Prospector] Calificado en Bogotá, CO. Correo verificado: recepcion@zenurbanospa.co",
       "created_at": "2026-05-30T18:07:40.054Z"
     },
     {
@@ -231,8 +231,8 @@
         "Tiempo de carga móvil lento (>3.9s)",
         "Falta de optimización SEO local y viewport meta tag"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Guadalajara, MX. Correo verificado: contacto@gdl-dental.com",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Contactado con copywriting conversacional y precios regionales el 5/30/2026. Resend ID: 9367f0d5-0527-431d-b9a6-d8f974a82b75\n[Auto Prospector] Calificado en Guadalajara, MX. Correo verificado: contacto@gdl-dental.com",
       "created_at": "2026-05-30T18:07:40.055Z"
     },
     {
@@ -251,8 +251,8 @@
         "Falta etiqueta Meta Title",
         "Código CSS/JS pesado sin compresión, afectando el SEO en móviles"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Santiago, CL. Correo verificado: consultas@dramariajosesilva.cl",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Contactado con copywriting conversacional y precios regionales el 5/30/2026. Resend ID: a5c0bef7-643d-4bbd-a7b7-72c3731fd111\n[Auto Prospector] Calificado en Santiago, CL. Correo verificado: consultas@dramariajosesilva.cl",
       "created_at": "2026-05-30T18:07:40.055Z"
     },
     {
@@ -271,8 +271,8 @@
         "Tiempo de carga excesivo (>5s)",
         "Menú de navegación principal no adaptado a pantallas táctiles pequeñas"
       ],
-      "crm_status": "lead",
-      "crm_notes": "[Auto Prospector] Calificado en Cancún, MX. Correo verificado: reservations@cancunluxuryboutique.com",
+      "crm_status": "contacted",
+      "crm_notes": "[Auto Outbox] Contactado con copywriting conversacional y precios regionales el 5/30/2026. Resend ID: 3ab21125-85eb-49be-b395-7c8576484bd8\n[Auto Prospector] Calificado en Cancún, MX. Correo verificado: reservations@cancunluxuryboutique.com",
       "created_at": "2026-05-30T18:07:40.055Z"
     }
   ],
@@ -437,9 +437,9 @@
       "subject": "Boceto móvil gratis para Clínica Dental Cumbres Monterrey ⚡",
       "pitch_email": "Hola, me presento: soy David en el equipo de Blinq. Estábamos buscando Clínicas/Servicios y nos encontramos tu página web https://www.dentalcumbres.mx. Notamos que no está optimizada para dispositivos móviles ni para la era de la Inteligencia Artificial (SGE / ChatGPT), lo que te puede estar restando visibilidad y clientes en Monterrey, MX.\n\nHemos diseñado un boceto visual interactivo totalmente personalizado para tu marca, sin costo ni compromiso alguno. Por solo $50 USD te entregamos una web móvil nueva, ultrarrápida y con código puro en solo 48 horas. No pedimos ningún tipo de anticipo, pagas únicamente cuando estés 100% satisfecho con el resultado.\n\n¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.\n\nSaludos,\nDavid",
       "pitch_dm": "¡Hola Clínica Dental Cumbres Monterrey! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T20:40:13.504Z",
       "created_at": "2026-05-30T18:07:40.054Z"
     },
     {
@@ -448,9 +448,9 @@
       "subject": "Boceto móvil gratis para Spa Zen Urbano Bogotá ⚡",
       "pitch_email": "Hola, me presento: soy David en el equipo de Blinq. Estábamos buscando Clínicas/Servicios y nos encontramos tu página web https://www.zenurbanospa.co. Notamos que no está optimizada para dispositivos móviles ni para la era de la Inteligencia Artificial (SGE / ChatGPT), lo que te puede estar restando visibilidad y clientes en Bogotá, CO.\n\nHemos diseñado un boceto visual interactivo totalmente personalizado para tu marca, sin costo ni compromiso alguno. Por solo $50 USD (o 200.000 COP) te entregamos una web móvil nueva, ultrarrápida y con código puro en solo 48 horas. No pedimos ningún tipo de anticipo, pagas únicamente cuando estés 100% satisfecho con el resultado.\n\n¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.\n\nSaludos,\nDavid",
       "pitch_dm": "¡Hola Spa Zen Urbano Bogotá! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T20:40:14.859Z",
       "created_at": "2026-05-30T18:07:40.054Z"
     },
     {
@@ -459,9 +459,9 @@
       "subject": "Boceto móvil gratis para Guadalajara Dental Group ⚡",
       "pitch_email": "Hola, me presento: soy David en el equipo de Blinq. Estábamos buscando Clínicas/Servicios y nos encontramos tu página web https://www.gdl-dental.com. Notamos que no está optimizada para dispositivos móviles ni para la era de la Inteligencia Artificial (SGE / ChatGPT), lo que te puede estar restando visibilidad y clientes en Guadalajara, MX.\n\nHemos diseñado un boceto visual interactivo totalmente personalizado para tu marca, sin costo ni compromiso alguno. Por solo $50 USD te entregamos una web móvil nueva, ultrarrápida y con código puro en solo 48 horas. No pedimos ningún tipo de anticipo, pagas únicamente cuando estés 100% satisfecho con el resultado.\n\n¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.\n\nSaludos,\nDavid",
       "pitch_dm": "¡Hola Guadalajara Dental Group! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T20:40:16.191Z",
       "created_at": "2026-05-30T18:07:40.055Z"
     },
     {
@@ -470,9 +470,9 @@
       "subject": "Boceto móvil gratis para Dra. María José Silva Estética ⚡",
       "pitch_email": "Hola, me presento: soy David en el equipo de Blinq. Estábamos buscando Clínicas/Servicios y nos encontramos tu página web https://www.dramariajosesilva.cl. Notamos que no está optimizada para dispositivos móviles ni para la era de la Inteligencia Artificial (SGE / ChatGPT), lo que te puede estar restando visibilidad y clientes en Santiago, CL.\n\nHemos diseñado un boceto visual interactivo totalmente personalizado para tu marca, sin costo ni compromiso alguno. Por solo $50 USD te entregamos una web móvil nueva, ultrarrápida y con código puro en solo 48 horas. No pedimos ningún tipo de anticipo, pagas únicamente cuando estés 100% satisfecho con el resultado.\n\n¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.\n\nSaludos,\nDavid",
       "pitch_dm": "¡Hola Dra. María José Silva Estética! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T20:40:17.605Z",
       "created_at": "2026-05-30T18:07:40.055Z"
     },
     {
@@ -481,9 +481,9 @@
       "subject": "Boceto móvil gratis para Cancún Luxury Boutique Hotel ⚡",
       "pitch_email": "Hola, me presento: soy David en el equipo de Blinq. Estábamos buscando Clínicas/Servicios y nos encontramos tu página web https://www.cancunluxuryboutique.com. Notamos que no está optimizada para dispositivos móviles ni para la era de la Inteligencia Artificial (SGE / ChatGPT), lo que te puede estar restando visibilidad y clientes en Cancún, MX.\n\nHemos diseñado un boceto visual interactivo totalmente personalizado para tu marca, sin costo ni compromiso alguno. Por solo $50 USD te entregamos una web móvil nueva, ultrarrápida y con código puro en solo 48 horas. No pedimos ningún tipo de anticipo, pagas únicamente cuando estés 100% satisfecho con el resultado.\n\n¿Te gustaría ver el enlace del boceto? Responde a este correo y te lo comparto de inmediato.\n\nSaludos,\nDavid",
       "pitch_dm": "¡Hola Cancún Luxury Boutique Hotel! Notamos que su web móvil carga lento. Hacemos diseño premium por $50 USD en 48h sin anticipo. ¿Les hacemos un boceto visual gratis?",
-      "status": "pending_review",
+      "status": "sent",
       "contact_channel": "email",
-      "sent_at": null,
+      "sent_at": "2026-05-30T20:40:19.035Z",
       "created_at": "2026-05-30T18:07:40.055Z"
     }
   ],

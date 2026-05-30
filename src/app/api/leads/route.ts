@@ -38,18 +38,32 @@ export async function GET(request: Request) {
             .maybeSingle();
             
           if (existingLead) {
-            // Update the outreach draft in Supabase if the local copy changed and it is still pending_review
             const draft = localDrafts.find((d: any) => d.lead_id === lead.id);
             if (draft) {
+              const draftUpdates: any = {
+                subject: draft.subject,
+                pitch_email: draft.pitch_email,
+                pitch_dm: draft.pitch_dm,
+                status: draft.status
+              };
+              if (draft.status === 'sent') {
+                draftUpdates.sent_at = draft.sent_at || new Date().toISOString();
+              }
+              
               await supabase
                 .from('outreach_drafts')
-                .update({
-                  subject: draft.subject,
-                  pitch_email: draft.pitch_email,
-                  pitch_dm: draft.pitch_dm
-                })
-                .eq('lead_id', existingLead.id)
-                .eq('status', 'pending_review');
+                .update(draftUpdates)
+                .eq('lead_id', existingLead.id);
+                
+              if (lead.crm_status === 'contacted') {
+                await supabase
+                  .from('leads')
+                  .update({
+                    crm_status: 'contacted',
+                    crm_notes: lead.crm_notes
+                  })
+                  .eq('id', existingLead.id);
+              }
             }
           } else {
             console.log(`[AUTO-SYNC] Syncing lead: ${lead.business_name} (${lead.website})`);
