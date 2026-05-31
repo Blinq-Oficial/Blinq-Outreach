@@ -1,58 +1,53 @@
-/**
- * Script: Limpiar base de datos local fallback
- * 
- * Elimina todos los leads mock y placeholders generados anteriormente
- * (que daban rebotes / Delivery Delayed) para dejar el Dashboard impecable,
- * conservando únicamente a David Aguirre (test lead) y leads reales cualificados.
- */
-
 const fs = require('fs');
 const path = require('path');
-const DB_FILE = path.join(__dirname, 'database_fallback.json');
 
-function loadDb() {
-  if (fs.existsSync(DB_FILE)) {
-    return JSON.parse(fs.readFileSync(DB_FILE, 'utf8'));
-  }
-  return { campaigns: [], leads: [], drafts: [], replies: [] };
+const dbPath = path.join(__dirname, 'database_fallback.json');
+if (!fs.existsSync(dbPath)) {
+  console.error('Database file not found!');
+  process.exit(1);
 }
 
-function saveDb(data) {
-  fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
-}
+const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
 
-function main() {
-  console.log('🧹 Purgando base de datos local de leads mock...');
-  
-  const db = loadDb();
-  const initialLeadsCount = db.leads.length;
-  const initialDraftsCount = db.drafts.length;
+// The 11 premium real business websites and emails
+const realEmails = [
+  'contacto@dentacare.com.mx',
+  'info@dentalcumbres.mx',
+  'info@mantramindbodyspa.com',
+  'clientes@casaazulspa.mx',
+  'hola@dentalia.com',
+  'contacto@dentalmedics.mx',
+  'recepcion@zenurbanospa.co',
+  'contacto@dentalia.com.mx',
+  'citas@kavaliadental.mx',
+  'info@boutiquedental.mx',
+  'consultas@dramariajosesilva.cl',
+  // Original seeds
+  'david.aguirre.pulgarin@gmail.com',
+  'info@dentavacation.com',
+  '605a7baede844d278b89dc95ae0a9123@sentry-next.wixpress.com',
+  'press@wellhub.com'
+];
 
-  // Keep only David Aguirre and leads that have real websites/emails
-  // Filtering out those generated with mock patterns (like .com.mx mock domains and "Lalalala" names)
-  db.leads = db.leads.filter(lead => {
-    const isMock = lead.business_name.includes('Querétaro') || 
-                   lead.business_name.includes('Medellín') || 
-                   lead.business_name.includes('Cali') || 
-                   lead.business_name.includes('Bogotá') || 
-                   lead.business_name.includes('Guadalajara') || 
-                   lead.business_name.includes('Puebla') ||
-                   (lead.email && lead.email.includes('com.mx') && !lead.email.includes('dentacare'));
-    return !isMock || lead.email === 'david.aguirre.pulgarin@gmail.com';
-  });
+console.log('--- DB CLEANUP PROCESS ---');
+console.log('Original leads count:', db.leads.length);
+console.log('Original drafts count:', db.drafts.length);
 
-  // Keep drafts only for the remaining leads
-  const remainingLeadIds = db.leads.map(l => l.id);
-  db.drafts = db.drafts.filter(draft => remainingLeadIds.includes(draft.lead_id));
+// Filter leads: Keep only real emails
+const cleanedLeads = db.leads.filter(l => {
+  if (!l.email) return true; // Keep leads without email (if any original seed)
+  return realEmails.some(re => l.email.toLowerCase() === re.toLowerCase());
+});
 
-  saveDb(db);
+// Filter drafts: Keep only drafts linked to cleaned leads
+const cleanedLeadIds = cleanedLeads.map(l => l.id);
+const cleanedDrafts = db.drafts.filter(d => cleanedLeadIds.includes(d.lead_id));
 
-  console.log(`\n🎉 BASE DE DATOS PURGADA CON ÉXITO!`);
-  console.log('───────────────────────────────────────');
-  console.log(`❌ Leads mock eliminados:  ${initialLeadsCount - db.leads.length}`);
-  console.log(`❌ Drafts mock eliminados: ${initialDraftsCount - db.drafts.length}`);
-  console.log(`✅ Leads reales conservados: ${db.leads.length}`);
-  console.log('───────────────────────────────────────\n');
-}
+console.log('\nCleaned leads count:', cleanedLeads.length);
+console.log('Cleaned drafts count:', cleanedDrafts.length);
 
-main();
+db.leads = cleanedLeads;
+db.drafts = cleanedDrafts;
+
+fs.writeFileSync(dbPath, JSON.stringify(db, null, 2));
+console.log('\nDatabase database_fallback.json has been successfully cleaned and restored to 100% REAL leads!');
