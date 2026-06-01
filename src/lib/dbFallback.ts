@@ -63,12 +63,33 @@ export interface LocalReply {
   created_at: string;
 }
 
+export interface LocalProject {
+  id: string;
+  name: string;
+  amount: number;
+  type: 'standard' | 'family' | 'custom';
+  davidShare: number;
+  samuelShare: number;
+  created_at: string;
+}
+
+export interface LocalExpense {
+  id: string;
+  description: string;
+  amount: number;
+  paidBy: 'david' | 'samuel' | 'company';
+  splitBetween: '50/50' | '70/30' | 'company';
+  created_at: string;
+}
+
 interface LocalDatabase {
   campaigns: LocalCampaign[];
   leads: LocalLead[];
   drafts: LocalDraft[];
   replies?: LocalReply[];
   partners?: LocalPartner[];
+  projects?: LocalProject[];
+  expenses?: LocalExpense[];
 }
 
 function initDb(): LocalDatabase {
@@ -78,6 +99,8 @@ function initDb(): LocalDatabase {
       const parsed = JSON.parse(content) as LocalDatabase;
       parsed.replies = parsed.replies || [];
       parsed.partners = parsed.partners || [];
+      parsed.projects = parsed.projects || [];
+      parsed.expenses = parsed.expenses || [];
       return parsed;
     } catch (e) {
       console.error('Error reading local fallback database, resetting:', e);
@@ -168,6 +191,8 @@ function loadDb(): LocalDatabase {
       db.drafts = parsed.drafts || [];
       db.replies = parsed.replies || [];
       db.partners = parsed.partners || [];
+      db.projects = parsed.projects || [];
+      db.expenses = parsed.expenses || [];
     } catch (e) {
       console.error('Error reloading local fallback database:', e);
     }
@@ -378,5 +403,55 @@ export const localDb = {
     db.partners.push(newPartner);
     saveDb();
     return newPartner;
+  },
+
+  getProjects: () => {
+    loadDb();
+    return db.projects || [];
+  },
+
+  getExpenses: () => {
+    loadDb();
+    return db.expenses || [];
+  },
+
+  addProject: (project: Omit<LocalProject, 'id' | 'created_at'>) => {
+    loadDb();
+    db.projects = db.projects || [];
+    const newProj: LocalProject = {
+      ...project,
+      id: 'proj-' + Math.random().toString(36).substring(7),
+      created_at: new Date().toISOString()
+    };
+    db.projects.push(newProj);
+    saveDb();
+    return newProj;
+  },
+
+  deleteProject: (id: string) => {
+    loadDb();
+    db.projects = db.projects || [];
+    db.projects = db.projects.filter(p => p.id !== id);
+    saveDb();
+  },
+
+  addExpense: (expense: Omit<LocalExpense, 'id' | 'created_at'>) => {
+    loadDb();
+    db.expenses = db.expenses || [];
+    const newExp: LocalExpense = {
+      ...expense,
+      id: 'exp-' + Math.random().toString(36).substring(7),
+      created_at: new Date().toISOString()
+    };
+    db.expenses.push(newExp);
+    saveDb();
+    return newExp;
+  },
+
+  deleteExpense: (id: string) => {
+    loadDb();
+    db.expenses = db.expenses || [];
+    db.expenses = db.expenses.filter(e => e.id !== id);
+    saveDb();
   }
 };

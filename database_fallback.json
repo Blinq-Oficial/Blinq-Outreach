@@ -773,5 +773,124 @@
       "avatar_color": "40 95% 55%",
       "created_at": "2026-05-30T10:00:00.000Z"
     }
+  ],
+  "projects": [
+    {
+      "id": "proj-seed-1",
+      "name": "DentaCare Monterrey",
+      "amount": 50,
+      "type": "standard",
+      "davidShare": 25,
+      "samuelShare": 25,
+      "created_at": "2026-05-21T23:00:28.746Z"
+    },
+    {
+      "id": "proj-seed-2",
+      "name": "Clínica Dental Cumbres",
+      "amount": 50,
+      "type": "standard",
+      "davidShare": 25,
+      "samuelShare": 25,
+      "created_at": "2026-05-22T23:00:28.757Z"
+    },
+    {
+      "id": "proj-seed-3",
+      "name": "Mantra Mind & Body Spa",
+      "amount": 50,
+      "type": "standard",
+      "davidShare": 25,
+      "samuelShare": 25,
+      "created_at": "2026-05-23T23:00:28.757Z"
+    },
+    {
+      "id": "proj-seed-4",
+      "name": "Casa Azul Spa Urbano",
+      "amount": 50,
+      "type": "standard",
+      "davidShare": 25,
+      "samuelShare": 25,
+      "created_at": "2026-05-24T23:00:28.757Z"
+    },
+    {
+      "id": "proj-seed-5",
+      "name": "Dentalia Monterrey",
+      "amount": 50,
+      "type": "standard",
+      "davidShare": 25,
+      "samuelShare": 25,
+      "created_at": "2026-05-25T23:00:28.757Z"
+    },
+    {
+      "id": "proj-seed-6",
+      "name": "Dentalmedics Monterrey",
+      "amount": 50,
+      "type": "standard",
+      "davidShare": 25,
+      "samuelShare": 25,
+      "created_at": "2026-05-26T23:00:28.757Z"
+    },
+    {
+      "id": "proj-seed-7",
+      "name": "Clínica Dental Dentalia CDMX",
+      "amount": 50,
+      "type": "standard",
+      "davidShare": 25,
+      "samuelShare": 25,
+      "created_at": "2026-05-27T23:00:28.757Z"
+    },
+    {
+      "id": "proj-seed-8",
+      "name": "Kavalia Dental Monterrey",
+      "amount": 50,
+      "type": "standard",
+      "davidShare": 25,
+      "samuelShare": 25,
+      "created_at": "2026-05-28T23:00:28.757Z"
+    },
+    {
+      "id": "proj-seed-9",
+      "name": "Boutique Dental Monterrey",
+      "amount": 50,
+      "type": "standard",
+      "davidShare": 25,
+      "samuelShare": 25,
+      "created_at": "2026-05-29T23:00:28.757Z"
+    },
+    {
+      "id": "proj-seed-10",
+      "name": "Spa Zen Urbano Bogotá",
+      "amount": 50,
+      "type": "family",
+      "davidShare": 35,
+      "samuelShare": 15,
+      "created_at": "2026-05-30T23:00:28.757Z"
+    },
+    {
+      "id": "proj-seed-11",
+      "name": "Dra. María José Silva Estética",
+      "amount": 50,
+      "type": "family",
+      "davidShare": 35,
+      "samuelShare": 15,
+      "created_at": "2026-05-31T23:00:28.757Z"
+    }
+  ],
+  "expenses": [
+    {
+      "id": "exp-seed-1",
+      "description": "Hosting Vercel Pro + Dominios Blinq",
+      "amount": 25,
+      "paidBy": "david",
+      "splitBetween": "50/50",
+      "created_at": "2026-05-27T23:00:28.757Z"
+    },
+    {
+      "id": "exp-seed-2",
+      "description": "Suscripción Resend API Plan",
+      "amount": 15,
+      "paidBy": "samuel",
+      "splitBetween": "50/50",
+      "created_at": "2026-05-29T23:00:28.757Z"
+    }
   ]
 }
