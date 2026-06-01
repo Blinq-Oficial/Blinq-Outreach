@@ -70,6 +70,7 @@ export interface LocalProject {
   type: 'standard' | 'family' | 'custom';
   davidShare: number;
   samuelShare: number;
+  receivedBy?: 'company' | 'david' | 'samuel';
   created_at: string;
 }
 

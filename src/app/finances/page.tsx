@@ -32,7 +32,8 @@ export default function FinancesPage() {
   const [projName, setProjName] = useState('');
   const [projAmount, setProjAmount] = useState('');
   const [projSplitType, setProjSplitType] = useState<'standard' | 'family' | 'custom'>('standard');
-  const [customDavidPct, setCustomDavidPct] = useState(50);
+  const [customDavidAmt, setCustomDavidAmt] = useState('');
+  const [customSamuelAmt, setCustomSamuelAmt] = useState('');
   const [projReceivedBy, setProjReceivedBy] = useState<'company' | 'david' | 'samuel'>('company');
 
   const [expDescription, setExpDescription] = useState('');
@@ -62,6 +63,18 @@ export default function FinancesPage() {
   useEffect(() => {
     loadData();
   }, []);
+
+  // Sync custom split inputs when project amount or split type changes
+  useEffect(() => {
+    const amt = parseFloat(projAmount) || 0;
+    if (projSplitType === 'standard') {
+      setCustomDavidAmt((amt * 0.5).toFixed(2));
+      setCustomSamuelAmt((amt * 0.5).toFixed(2));
+    } else if (projSplitType === 'family') {
+      setCustomDavidAmt((amt * 0.7).toFixed(2));
+      setCustomSamuelAmt((amt * 0.3).toFixed(2));
+    }
+  }, [projAmount, projSplitType]);
 
   // Compute stats
   const totalRevenue = projects.reduce((acc, p) => acc + p.amount, 0);
@@ -131,8 +144,8 @@ export default function FinancesPage() {
       dShare = amount * 0.7;
       sShare = amount * 0.3;
     } else if (projSplitType === 'custom') {
-      dShare = amount * (customDavidPct / 100);
-      sShare = amount * ((100 - customDavidPct) / 100);
+      dShare = parseFloat(customDavidAmt) || 0;
+      sShare = parseFloat(customSamuelAmt) || 0;
     }
 
     try {
@@ -285,7 +298,7 @@ export default function FinancesPage() {
           overflow: 'hidden'
         }}>
           <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#a855f7', letterSpacing: '0.05em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
-            Ingresos Totales
+            Lo que nos pagaron (Ingresos)
           </div>
           <div style={{ fontSize: '2rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
             ${totalRevenue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
@@ -305,7 +318,7 @@ export default function FinancesPage() {
           position: 'relative'
         }}>
           <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#3b82f6', letterSpacing: '0.05em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
-            Participación de David
+            Lo que me queda yo (David)
           </div>
           <div style={{ fontSize: '2rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
             ${davidProjectProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
@@ -324,7 +337,7 @@ export default function FinancesPage() {
           boxShadow: 'var(--shadow-md)'
         }}>
           <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#ec4899', letterSpacing: '0.05em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
-            Participación de Samuel
+            Lo que se queda para Samu
           </div>
           <div style={{ fontSize: '2rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
             ${samuelProjectProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
@@ -343,7 +356,7 @@ export default function FinancesPage() {
           boxShadow: 'var(--shadow-md)'
         }}>
           <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#ef4444', letterSpacing: '0.05em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
-            Gastos Totales
+            Lo que nos gastamos (Gastos)
           </div>
           <div style={{ fontSize: '2rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
             ${totalExpenses.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
@@ -404,14 +417,14 @@ export default function FinancesPage() {
           alignItems: 'center',
           gap: '0.5rem'
         }}>
-          {whoOwesWhom === 'square' && (
+           {whoOwesWhom === 'square' && (
             <span>🤝 ¡Están completamente a mano! Cero deudas pendientes.</span>
           )}
           {whoOwesWhom === 'david' && (
-            <span>⚠️ David le debe a Samuel: <strong>${finalOwedAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD</strong></span>
+            <span>⚠️ David debe pagarle a Samu: <strong>${finalOwedAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD</strong></span>
           )}
           {whoOwesWhom === 'samuel' && (
-            <span>⚠️ Samuel le debe a David: <strong>${finalOwedAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD</strong></span>
+            <span>⚠️ Samu debe pagarle a David: <strong>${finalOwedAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD</strong></span>
           )}
         </div>
       </div>
@@ -664,7 +677,7 @@ export default function FinancesPage() {
             </h2>
             <form onSubmit={handleAddProject} style={{ display: 'flex', flexDirection: 'column', gap: '1.15rem' }}>
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Nombre del Cliente / Proyecto</label>
+                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Cliente (¿Quién es el cliente?)</label>
                 <input 
                   type="text" 
                   value={projName} 
@@ -684,7 +697,7 @@ export default function FinancesPage() {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Monto Cobrado (USD)</label>
+                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Monto: Lo que nos pagaron (USD)</label>
                 <input 
                   type="number" 
                   value={projAmount} 
@@ -704,7 +717,7 @@ export default function FinancesPage() {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>¿Quién cobró esta facturación?</label>
+                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>¿Quién cobró este dinero? / ¿A quién se lo pagaron?</label>
                 <select 
                   value={projReceivedBy} 
                   onChange={(e) => setProjReceivedBy(e.target.value as any)}
@@ -718,14 +731,14 @@ export default function FinancesPage() {
                     marginTop: '0.35rem'
                   }}
                 >
-                  <option value="company">Cuenta de la Empresa (Blinq)</option>
-                  <option value="david">David (Cobrado directamente)</option>
-                  <option value="samuel">Samuel (Cobrado directamente)</option>
+                  <option value="company">Cuenta de la Empresa (Caja Blinq)</option>
+                  <option value="david">David (Pagado a mí)</option>
+                  <option value="samuel">Samu (Pagado a Samu)</option>
                 </select>
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Distribución del Profit (Split)</label>
+                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Distribución del Profit (Split): Lo que me queda a mí vs Samu</label>
                 <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.35rem' }}>
                   <button 
                     type="button" 
@@ -779,34 +792,97 @@ export default function FinancesPage() {
               </div>
 
               {/* Custom Sliders */}
-              {projSplitType === 'custom' && (
-                <div style={{
-                  padding: '1rem',
-                  background: 'rgba(0,0,0,0.25)',
-                  borderRadius: 'var(--radius-sm)',
-                  border: '1px solid var(--border-subtle)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.75rem'
-                }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem' }}>
-                    <span>David: <strong>{customDavidPct}%</strong></span>
-                    <span>Samuel: <strong>{100 - customDavidPct}%</strong></span>
+              {projSplitType === 'custom' && (() => {
+                const totalAmt = parseFloat(projAmount) || 0;
+                const davidVal = parseFloat(customDavidAmt) || 0;
+                const currentPct = totalAmt > 0 ? Math.round((davidVal / totalAmt) * 100) : 50;
+                
+                return (
+                  <div style={{
+                    padding: '1.25rem',
+                    background: 'rgba(0,0,0,0.3)',
+                    borderRadius: 'var(--radius-sm)',
+                    border: '1px solid rgba(168, 85, 247, 0.2)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '1rem'
+                  }}>
+                    <div style={{ display: 'flex', gap: '0.75rem' }}>
+                      <div style={{ flex: 1 }}>
+                        <label style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Lo que me queda yo (David)</label>
+                        <input 
+                          type="number" 
+                          step="0.01"
+                          value={customDavidAmt} 
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            setCustomDavidAmt(val);
+                            const d = parseFloat(val) || 0;
+                            setCustomSamuelAmt(Math.max(0, totalAmt - d).toFixed(2));
+                          }} 
+                          placeholder="Monto David"
+                          style={{
+                            width: '100%',
+                            padding: '0.6rem',
+                            background: 'rgba(0,0,0,0.4)',
+                            border: '1px solid rgba(255,255,255,0.08)',
+                            borderRadius: '6px',
+                            color: '#ffffff',
+                            fontSize: '0.85rem',
+                            marginTop: '0.25rem'
+                          }}
+                        />
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <label style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Lo que se queda Samu</label>
+                        <input 
+                          type="number" 
+                          step="0.01"
+                          value={customSamuelAmt} 
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            setCustomSamuelAmt(val);
+                            const s = parseFloat(val) || 0;
+                            setCustomDavidAmt(Math.max(0, totalAmt - s).toFixed(2));
+                          }} 
+                          placeholder="Monto Samu"
+                          style={{
+                            width: '100%',
+                            padding: '0.6rem',
+                            background: 'rgba(0,0,0,0.4)',
+                            border: '1px solid rgba(255,255,255,0.08)',
+                            borderRadius: '6px',
+                            color: '#ffffff',
+                            fontSize: '0.85rem',
+                            marginTop: '0.25rem'
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <input 
+                        type="range" 
+                        min="0" 
+                        max="100" 
+                        value={currentPct} 
+                        onChange={(e) => {
+                          const pct = parseInt(e.target.value);
+                          const d = totalAmt * (pct / 100);
+                          const s = totalAmt - d;
+                          setCustomDavidAmt(d.toFixed(2));
+                          setCustomSamuelAmt(s.toFixed(2));
+                        }}
+                        style={{ width: '100%', accentColor: '#a855f7', cursor: 'pointer' }}
+                      />
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
+                        <span>David: {currentPct}%</span>
+                        <span>Samuel: {100 - currentPct}%</span>
+                      </div>
+                    </div>
                   </div>
-                  <input 
-                    type="range" 
-                    min="0" 
-                    max="100" 
-                    value={customDavidPct} 
-                    onChange={(e) => setCustomDavidPct(parseInt(e.target.value))}
-                    style={{ width: '100%', accentColor: '#a855f7', cursor: 'pointer' }}
-                  />
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text-muted)' }}>
-                    <span>David: ${(parseFloat(projAmount || '0') * customDavidPct / 100).toFixed(2)}</span>
-                    <span>Samuel: ${(parseFloat(projAmount || '0') * (100 - customDavidPct) / 100).toFixed(2)}</span>
-                  </div>
-                </div>
-              )}
+                );
+              })()}
 
               <button 
                 type="submit"
@@ -907,7 +983,7 @@ export default function FinancesPage() {
             </h2>
             <form onSubmit={handleAddExpense} style={{ display: 'flex', flexDirection: 'column', gap: '1.15rem' }}>
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Concepto / Descripción del Gasto</label>
+                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Lo que nos gastamos (Concepto / Descripción)</label>
                 <input 
                   type="text" 
                   value={expDescription} 
@@ -927,7 +1003,7 @@ export default function FinancesPage() {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Monto Total (USD)</label>
+                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Monto Gastado (USD)</label>
                 <input 
                   type="number" 
                   value={expAmount} 
@@ -947,7 +1023,7 @@ export default function FinancesPage() {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>¿Quién pagó este gasto?</label>
+                <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>¿Quién pagó este gasto? (¿Quién puso el dinero?)</label>
                 <select 
                   value={expPaidBy} 
                   onChange={(e) => setExpPaidBy(e.target.value as any)}
@@ -961,8 +1037,8 @@ export default function FinancesPage() {
                     marginTop: '0.35rem'
                   }}
                 >
-                  <option value="david">David (Personal)</option>
-                  <option value="samuel">Samuel (Personal)</option>
+                  <option value="david">David (Pagado por mí)</option>
+                  <option value="samuel">Samu (Pagado por Samu)</option>
                   <option value="company">Cuenta de la Empresa (Caja Blinq)</option>
                 </select>
               </div>

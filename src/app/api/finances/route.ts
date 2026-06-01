@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     const { actionType } = body; // 'project' or 'expense'
 
     if (actionType === 'project') {
-      const { name, amount, type, davidShare, samuelShare } = body;
+      const { name, amount, type, davidShare, samuelShare, receivedBy } = body;
       
       if (!name || isNaN(amount) || !type) {
         return NextResponse.json({ error: 'Faltan parámetros requeridos para el proyecto.' }, { status: 400 });
@@ -30,7 +30,8 @@ export async function POST(request: Request) {
         amount: parseFloat(amount),
         type,
         davidShare: parseFloat(davidShare),
-        samuelShare: parseFloat(samuelShare)
+        samuelShare: parseFloat(samuelShare),
+        receivedBy: receivedBy || 'company'
       });
 
       return NextResponse.json({ success: true, project: newProj });
