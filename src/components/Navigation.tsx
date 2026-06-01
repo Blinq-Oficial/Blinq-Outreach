@@ -60,6 +60,15 @@ export default function Navigation() {
           <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
         </svg>
       )
+    },
+    {
+      href: '/prospector',
+      label: 'Prospección Social',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.09-.23.15-.47.15-.7s-.06-.47-.15-.7l7.02-4.11c.54.5 1.25.8 2.08.8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.06.47.15.7L8.09 9.81c-.54-.5-1.25-.8-2.08-.8a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.83 0 1.54-.3 2.08-.8l7.11 4.16c-.08.2-.13.43-.13.66a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
+        </svg>
+      )
     }
   ];
 

@@ -263,3 +263,160 @@ export async function PATCH(request: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
+
+// POST: Create a new lead and outreach draft
+export async function POST(request: Request) {
+  try {
+    const body = await request.json();
+    const {
+      campaignId,
+      businessName,
+      phone,
+      email,
+      website,
+      instagram,
+      whatsapp,
+      address,
+      googleRating,
+      websiteIssues,
+      pitchSubject,
+      pitchEmail,
+      pitchDm,
+      contactChannel,
+      crmStatus,
+      crmNotes
+    } = body;
+
+    if (!campaignId || !businessName || !website) {
+      return NextResponse.json({ error: 'Faltan parámetros requeridos: campaignId, businessName y website son obligatorios.' }, { status: 400 });
+    }
+
+    if (!isSupabaseConfigured()) {
+      console.log(`[LOCAL FALLBACK DB] Creating lead and draft locally for: ${businessName}`);
+      
+      const createdLead = localDb.createLead(campaignId, {
+        business_name: businessName,
+        phone: phone || null,
+        email: email || null,
+        website,
+        has_website: website !== '',
+        instagram: instagram || null,
+        whatsapp: whatsapp || null,
+        address: address || null,
+        google_rating: googleRating ? parseFloat(googleRating) : null,
+        website_issues: websiteIssues || []
+      });
+
+      // Add corresponding draft
+      const createdDraft = localDb.createDraft(createdLead.id, {
+        subject: pitchSubject || '',
+        pitch_email: pitchEmail || '',
+        pitch_dm: pitchDm || '',
+        status: 'pending_review',
+        contact_channel: contactChannel || 'email',
+        sent_at: null
+      });
+
+      // Update CRM state if specified (since createLead defaults it to 'lead')
+      if (crmStatus || crmNotes) {
+        localDb.updateLeadCrm(createdLead.id, {
+          crm_status: crmStatus || 'lead',
+          crm_notes: crmNotes || ''
+        });
+      }
+
+      return NextResponse.json({
+        success: true,
+        lead: {
+          ...createdLead,
+          crm_status: crmStatus || createdLead.crm_status,
+          crm_notes: crmNotes || createdLead.crm_notes,
+          draft_id: createdDraft.id,
+          subject: createdDraft.subject,
+          pitch_email: createdDraft.pitch_email,
+          pitch_dm: createdDraft.pitch_dm,
+          draft_status: createdDraft.status,
+          contact_channel: createdDraft.contact_channel,
+          sent_at: createdDraft.sent_at
+        }
+      });
+    }
+
+    // --- SUPABASE PROD FLOW ---
+    // 1. Insert Lead
+    const { data: newLead, error: leadErr } = await supabase
+      .from('leads')
+      .insert({
+        campaign_id: campaignId,
+        business_name: businessName,
+        phone: phone || null,
+        email: email || null,
+        website,
+        has_website: website !== '',
+        instagram: instagram || null,
+        whatsapp: whatsapp || null,
+        address: address || null,
+        google_rating: googleRating ? parseFloat(googleRating) : null,
+        website_issues: websiteIssues || [],
+        crm_status: crmStatus || 'lead',
+        crm_notes: crmNotes || ''
+      })
+      .select()
+      .single();
+
+    if (leadErr) {
+      throw leadErr;
+    }
+
+    // 2. Insert Draft
+    const { data: newDraft, error: draftErr } = await supabase
+      .from('outreach_drafts')
+      .insert({
+        lead_id: newLead.id,
+        subject: pitchSubject || '',
+        pitch_email: pitchEmail || '',
+        pitch_dm: pitchDm || '',
+        status: 'pending_review',
+        contact_channel: contactChannel || 'email',
+        sent_at: null
+      })
+      .select()
+      .single();
+
+    if (draftErr) {
+      throw draftErr;
+    }
+
+    return NextResponse.json({
+      success: true,
+      lead: {
+        lead_id: newLead.id,
+        business_name: newLead.business_name,
+        phone: newLead.phone,
+        email: newLead.email,
+        website: newLead.website,
+        has_website: newLead.has_website,
+        instagram: newLead.instagram,
+        whatsapp: newLead.whatsapp,
+        address: newLead.address,
+        google_rating: newLead.google_rating,
+        website_issues: newLead.website_issues,
+        campaign_id: newLead.campaign_id,
+        crm_status: newLead.crm_status,
+        crm_notes: newLead.crm_notes,
+        draft_id: newDraft.id,
+        subject: newDraft.subject,
+        pitch_email: newDraft.pitch_email,
+        pitch_dm: newDraft.pitch_dm,
+        draft_status: newDraft.status,
+        contact_channel: newDraft.contact_channel,
+        sent_at: newDraft.sent_at
+      }
+    });
+
+  } catch (error: any) {
+    console.error('Error creating lead and draft:', error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
+
